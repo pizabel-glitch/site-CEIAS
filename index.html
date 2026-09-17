@@ -1,11 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Escola Novo Horizontes</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    
+
+    <!-- Header / Navegação -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo"><i class="fa-solid fa-graduation-cap"></i> Escola Novo Horizonte</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#cursos">Ensino</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Educando para o Futuro com Excelência</h1>
+            <p>Formando cidadãos éticos, criativos e preparados para os desafios do amanhã.</p>
+            <a href="#contato" class="btn">Matrículas Abertas</a>
+        </div>
+    </section>
+
+    <!-- Sobre a Escola -->
+    <section id="sobre" class="section container">
+        <div class="sobre-grid">
+            <div class="sobre-text">
+                <h2>Sobre Nossa Escola</h2>
+                <p>Com mais de 20 anos de tradição, a Escola Novo Horizonte oferece um ambiente seguro, inovador e acolhedor para o desenvolvimento integral dos nossos alunos.</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Corpo docente altamente qualificado</li>
+                    <li><i class="fa-solid fa-check"></i> Infraestrutura moderna e laboratórios completos</li>
+                    <li><i class="fa-solid fa-check"></i> Foco na formação acadêmica e humana</li>
+                </ul>
+            </div>
+            <div class="sobre-img">
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" alt="Instalações da escola">
+            </div>
+        </div>
+    </section>
+
+    <!-- Níveis de Ensino / Cursos -->
+    <section id="cursos" class="section bg-light">
+        <div class="container">
+            <h2 class="title-center">Nossos Níveis de Ensino</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fa-solid fa-child icon-card"></i>
+                    <h3>Educação Infantil</h3>
+                    <p>Estimulando a curiosidade, a convivência e as primeiras descobertas em um ambiente lúdico.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-book-open icon-card"></i>
+                    <h3>Ensino Fundamental</h3>
+                    <p>Desenvolvimento do raciocínio lógico, leitura crítica e autonomia nos estudos.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-user-graduate icon-card"></i>
+                    <h3>Ensino Médio</h3>
+                    <p>Preparação intensiva para o ENEM, vestibulares e o mercado de trabalho com suporte contínuo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notícias e Comunicados -->
+    <section id="noticias" class="section container">
+        <h2 class="title-center">Últimas Notícias e Eventos</h2>
+        <div class="cards-grid">
+            <div class="news-card">
+                <div class="news-body">
+                    <span class="date">15 de Março</span>
+                    <h3>Feira de Ciências 2026</h3>
+                    <p>Alunos apresentaram projetos de robótica e sustentabilidade com destaque regional.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-body">
+                    <span class="date">10 de Março</span>
+                    <h3>Reunião de Pais e Mestres</h3>
+                    <p>Confira a programação do nosso próximo encontro do 1º trimestre.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-body">
+                    <span class="date">01 de Março</span>
+                    <h3>Olimpíada de Matemática</h3>
+                    <p>Inscrições abertas para todos os alunos do Fundamental II e Médio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Localização -->
+    <section id="contato" class="section bg-light">
+        <div class="container">
+            <h2 class="title-center">Fale Conosco</h2>
+            <div class="contato-grid">
+                <form id="contactForm" class="form-contato">
+                    <input type="text" id="nome" placeholder="Seu Nome Completo" required>
+                    <input type="email" id="email" placeholder="Seu E-mail" required>
+                    <input type="text" id="assunto" placeholder="Assunto (ex: Matrícula, Dúvidas)" required>
+                    <textarea id="mensagem" rows="5" placeholder="Sua Mensagem..." required></textarea>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+                <div class="info-contato">
+                    <p><i class="fa-solid fa-location-dot"></i> Av. Das Escolas, 123 - Centro</p>
+                    <p><i class="fa-solid fa-phone"></i> (00) 1234-5678</p>
+                    <p><i class="fa-solid fa-envelope"></i> contato@escolanovohorizonte.com.br</p>
+                    <p><i class="fa-solid fa-clock"></i> Segunda a Sexta: 07h às 18h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Escola Novo Horizonte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
