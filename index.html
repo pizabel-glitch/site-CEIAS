@@ -3,173 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos e Calendário - CEIAS</title>
-  <link rel="stylesheet" href="style.css">
+  <title>CEIAS - Calendário & Grade Escolar</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Seção de Eventos -->
-  <section id="eventos" class="section-eventos" aria-labelledby="titulo-eventos">
-    <div class="container">
-      
-      <!-- Cabeçalho da Seção (Estilo Camila) -->
-      <header class="section-header">
-        <span class="badge-tag">✦ Programação & Atividades</span>
-        <h2 id="titulo-eventos" class="section-title">
-          Momentos que ficam <span class="highlight">na memória.</span>
-        </h2>
-        <p class="section-description">
-          Acompanhe os próximos eventos, datas importantes do calendário escolar e participações da nossa comunidade.
-        </p>
-      </header>
+  <main class="container">
+    <header class="section-header">
+      <span class="badge-tag">✦ Gestão Escolar & Atividades</span>
+      <h1 class="section-title">Calendário & <span>Grade Curricular</span></h1>
+      <p class="section-description">
+        Acompanhe as matérias, professores responsáveis e eventos programados no CEIAS.
+      </p>
+    </header>
 
-      <!-- Painel Principal de Eventos -->
-      <div class="events-grid-layout">
-
-        <!-- Coluna Esquerda: Calendário Interativo -->
-        <div class="calendar-card" role="region" aria-label="Calendário Escolar">
-          <div class="calendar-header">
-            <h3 class="calendar-month" id="current-month">Outubro 2026</h3>
-            <div class="calendar-nav">
-              <button class="btn-icon" aria-label="Mês anterior">‹</button>
-              <button class="btn-icon" aria-label="Próximo mês">›</button>
-            </div>
-          </div>
-
-          <!-- Dias da Semana -->
-          <div class="calendar-weekdays" aria-hidden="true">
-            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-          </div>
-
-          <!-- Grade de Dias -->
-          <div class="calendar-days" role="grid" aria-label="Dias de Outubro de 2026">
-            <!-- Dias vazios / Mês anterior -->
-            <span class="day empty" aria-hidden="true"></span>
-            <span class="day empty" aria-hidden="true"></span>
-            <span class="day empty" aria-hidden="true"></span>
-            
-            <!-- Dias do mês -->
-            <button class="day">1</button>
-            <button class="day">2</button>
-            <button class="day">3</button>
-            <button class="day">4</button>
-            <button class="day">5</button>
-            <button class="day">6</button>
-            <button class="day">7</button>
-            <button class="day">8</button>
-            <button class="day">9</button>
-            <button class="day has-event" aria-label="Dia 10 de Outubro, possui evento: Primavera Fest">
-              10
-              <span class="dot-indicator"></span>
-            </button>
-            <button class="day">11</button>
-            <button class="day">12</button>
-            <button class="day">13</button>
-            <button class="day">14</button>
-            <button class="day has-event" aria-label="Dia 15 de Outubro, possui evento: Dia dos Professores">
-              15
-              <span class="dot-indicator"></span>
-            </button>
-            <button class="day">16</button>
-            <button class="day">17</button>
-            <button class="day">18</button>
-            <button class="day">19</button>
-            <button class="day has-event" aria-label="Dia 20 de Outubro, possui evento: Semana Cultural">
-              20
-              <span class="dot-indicator"></span>
-            </button>
-            <button class="day">21</button>
-            <button class="day">22</button>
-            <button class="day">23</button>
-            <button class="day">24</button>
-            <button class="day">25</button>
-            <button class="day">26</button>
-            <button class="day">27</button>
-            <button class="day">28</button>
-            <button class="day">29</button>
-            <button class="day">30</button>
-            <button class="day">31</button>
+    <div class="events-grid-layout">
+      <!-- Calendário -->
+      <section class="calendar-card">
+        <div class="calendar-header">
+          <h2 class="calendar-month" id="calendar-month-year">Outubro 2026</h2>
+          <div class="calendar-nav">
+            <button class="btn-icon" id="prev-month">‹</button>
+            <button class="btn-icon" id="next-month">›</button>
           </div>
         </div>
 
-        <!-- Coluna Direita: Lista de Próximos Eventos -->
-        <div class="events-list-wrapper">
-          
-          <!-- Filtros de Eventos -->
-          <div class="filters-bar" role="tablist" aria-label="Filtrar eventos por categoria">
-            <button class="filter-btn active" role="tab" aria-selected="true">Todos</button>
-            <button class="filter-btn" role="tab" aria-selected="false">Escolar</button>
-            <button class="filter-btn" role="tab" aria-selected="false">Cultural</button>
-            <button class="filter-btn" role="tab" aria-selected="false">Comunidade</button>
-          </div>
-
-          <!-- Cards de Eventos -->
-          <div class="events-cards-container">
-            
-            <!-- Card Evento 1 -->
-            <article class="event-card" aria-labelledby="evento-1-titulo">
-              <div class="event-date-badge">
-                <time datetime="2026-10-10">
-                  <span class="day-number">10</span>
-                  <span class="month-name">OUT</span>
-                </time>
-              </div>
-
-              <div class="event-content">
-                <div class="event-meta">
-                  <span class="category-badge fest">🌼 Evento Especial</span>
-                  <span class="event-time">🕒 09:00 - 17:00</span>
-                </div>
-                <h3 id="evento-1-titulo" class="event-title">Primavera Fest</h3>
-                <p class="event-description">
-                  Um momento de celebração, integração, feira cultural e apresentações artísticas envolvendo toda a nossa comunidade escolar.
-                </p>
-                <div class="event-footer">
-                  <span class="location-tag">📍 Pátio Principal</span>
-                  <button class="btn-action" aria-label="Lembrete para Primavera Fest">
-                    + Lembrar
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card Evento 2 -->
-            <article class="event-card" aria-labelledby="evento-2-titulo">
-              <div class="event-date-badge">
-                <time datetime="2026-10-20">
-                  <span class="day-number">20</span>
-                  <span class="month-name">OUT</span>
-                </time>
-              </div>
-
-              <div class="event-content">
-                <div class="event-meta">
-                  <span class="category-badge cultura">🎨 Cultura</span>
-                  <span class="event-time">🕒 08:00 - 12:00</span>
-                </div>
-                <h3 id="evento-2-titulo" class="event-title">Semana Cultural</h3>
-                <p class="event-description">
-                  Uma semana dedicada à arte, ciência, criatividade, projetos dos estudantes e oficinas interativas abertas aos pais.
-                </p>
-                <div class="event-footer">
-                  <span class="location-tag">📍 Auditório & Salas</span>
-                  <button class="btn-action" aria-label="Lembrete para Semana Cultural">
-                    + Lembrar
-                  </button>
-                </div>
-              </div>
-            </article>
-
-          </div>
-
+        <div class="calendar-weekdays">
+          <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
         </div>
 
-      </div>
+        <div class="calendar-days" id="calendar-days-grid"></div>
+      </section>
+
+      <!-- Lista de Eventos e Aulas -->
+      <section class="events-list-wrapper">
+        <div class="filters-bar">
+          <button class="filter-btn active" data-filter="Todos">Todos</button>
+          <button class="filter-btn" data-filter="Especial">Especiais</button>
+          <button class="filter-btn" data-filter="Cultura">Cultura</button>
+          <button class="filter-btn" data-filter="Escolar">Escolar</button>
+        </div>
+
+        <div class="events-cards-container" id="events-list"></div>
+      </section>
     </div>
-  </section>
+  </main>
 
+  <!-- Modal de Detalhes -->
+  <div class="modal-overlay" id="event-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
