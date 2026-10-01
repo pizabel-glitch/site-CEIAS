@@ -1,142 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola Novo Horizontes</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Ícones Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colégio Estadual do Campo Irmã Ambrosia Sabatovich</title>
+<meta name="description" content="Educando para a Comunidade">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip" href="#inicio">Ir para o conteúdo</a>
 
-    <!-- Header / Navegação -->
-    <header>
-        <div class="container navbar">
-            <a href="#" class="logo"><i class="fa-solid fa-graduation-cap"></i> Escola Novo Horizonte</a>
-            <nav>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#cursos">Ensino</a></li>
-                    <li><a href="#noticias">Notícias</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle" id="mobileMenu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-    </header>
+<!-- BARRA SUPERIOR -->
+<div class="topbar"><div class="wrap">
+  <span>Colégio Estadual do Campo Irmã Ambrosia Sabatovich</span>
+  <nav aria-label="Links rápidos"><a href="#noticias">Comunicados</a><a href="#eventos">Calendário</a><a href="#pedagogia">Pedagogia</a><a href="#contato">Contato</a></nav>
+</div></div>
 
-    <!-- Banner Principal -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Educando para o Futuro com Excelência</h1>
-            <p>Formando cidadãos éticos, criativos e preparados para os desafios do amanhã.</p>
-            <a href="#contato" class="btn">Matrículas Abertas</a>
-        </div>
-    </section>
+<!-- CABEÇALHO -->
+<header id="header"><div class="wrap hd">
+  <a class="brand" href="#inicio"><img src="assets/logo.png" alt="Logo do colégio (C.E.I.A.S.)"><span>Colégio Estadual do Campo<b>Irmã Ambrosia Sabatovich</b></span></a>
+  <button id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">&#9776;</button>
+  <nav id="menu" aria-label="Menu principal">
+    <a href="#inicio">Início</a><a href="#escola">A Escola</a><a href="#ensino">Ensino</a><a href="#funcionarios">Funcionários</a><a href="#eventos">Eventos</a><a href="#primavera">Primavera Fest</a><a href="#noticias">Notícias</a><a href="#alunos">Alunos</a><a href="#responsaveis">Responsáveis</a><a href="#pedagogia">Pedagogia</a><a href="#localizacao">Localização</a><a href="#contato">Contato</a>
+  </nav>
+</div></header>
 
-    <!-- Sobre a Escola -->
-    <section id="sobre" class="section container">
-        <div class="sobre-grid">
-            <div class="sobre-text">
-                <h2>Sobre Nossa Escola</h2>
-                <p>Com mais de 20 anos de tradição, a Escola Novo Horizonte oferece um ambiente seguro, inovador e acolhedor para o desenvolvimento integral dos nossos alunos.</p>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Corpo docente altamente qualificado</li>
-                    <li><i class="fa-solid fa-check"></i> Infraestrutura moderna e laboratórios completos</li>
-                    <li><i class="fa-solid fa-check"></i> Foco na formação acadêmica e humana</li>
-                </ul>
-            </div>
-            <div class="sobre-img">
-                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" alt="Instalações da escola">
-            </div>
-        </div>
-    </section>
+<main>
+<!-- HERO: troque a foto em assets/escola.jpg -->
+<section id="inicio" class="hero">
+  <div class="wrap hero-in"><div>
+    <p class="stars" aria-hidden="true">★★★<b>★</b>★★★</p>
+    <h1>Colégio Estadual do Campo<br>Irmã Ambrosia Sabatovich</h1>
+    <p class="slogan">Educando para a Comunidade</p>
+    <p>Um espaço de aprendizagem, convivência e construção coletiva.</p>
+    <div class="btns"><a class="btn red" href="#escola">Conheça a escola</a><a class="btn line" href="#noticias">Ver notícias</a></div></div>
+  <aside class="hside" aria-label="Próximos eventos e comunicados"><h3>Próximos eventos</h3><ul id="heroEv"></ul><h3>Comunicados</h3><ul id="heroNot"></ul></aside>
+  </div>
+</section>
 
-    <!-- Níveis de Ensino / Cursos -->
-    <section id="cursos" class="section bg-light">
-        <div class="container">
-            <h2 class="title-center">Nossos Níveis de Ensino</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <i class="fa-solid fa-child icon-card"></i>
-                    <h3>Educação Infantil</h3>
-                    <p>Estimulando a curiosidade, a convivência e as primeiras descobertas em um ambiente lúdico.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-book-open icon-card"></i>
-                    <h3>Ensino Fundamental</h3>
-                    <p>Desenvolvimento do raciocínio lógico, leitura crítica e autonomia nos estudos.</p>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-user-graduate icon-card"></i>
-                    <h3>Ensino Médio</h3>
-                    <p>Preparação intensiva para o ENEM, vestibulares e o mercado de trabalho com suporte contínuo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ACESSOS RÁPIDOS -->
+<nav class="quick" aria-label="Acessos rápidos"><div class="wrap">
+  <a href="#noticias"><span aria-hidden="true">📢</span>Comunicados</a>
+  <a href="#eventos"><span aria-hidden="true">📅</span>Calendário</a>
+  <a href="#funcionarios"><span aria-hidden="true">👩‍🏫</span>Funcionários</a>
+  <a href="#noticias"><span aria-hidden="true">📰</span>Notícias</a>
+  <a href="#localizacao"><span aria-hidden="true">📍</span>Localização</a>
+</div></nav>
 
-    <!-- Notícias e Comunicados -->
-    <section id="noticias" class="section container">
-        <h2 class="title-center">Últimas Notícias e Eventos</h2>
-        <div class="cards-grid">
-            <div class="news-card">
-                <div class="news-body">
-                    <span class="date">15 de Março</span>
-                    <h3>Feira de Ciências 2026</h3>
-                    <p>Alunos apresentaram projetos de robótica e sustentabilidade com destaque regional.</p>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-body">
-                    <span class="date">10 de Março</span>
-                    <h3>Reunião de Pais e Mestres</h3>
-                    <p>Confira a programação do nosso próximo encontro do 1º trimestre.</p>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-body">
-                    <span class="date">01 de Março</span>
-                    <h3>Olimpíada de Matemática</h3>
-                    <p>Inscrições abertas para todos os alunos do Fundamental II e Médio.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- A ESCOLA -->
+<section id="escola" class="sec"><div class="wrap split">
+  <div class="ph tall"><span>[INSERIR FOTO DA ESCOLA]<br>assets/escola.jpg</span><img src="assets/escola.jpg" alt="Fotografia do colégio" onerror="this.remove()"></div>
+  <div>
+    <h2>A Escola</h2>
+    <p>O Colégio Estadual do Campo Irmã Ambrosia Sabatovich é um espaço de aprendizagem, convivência e desenvolvimento, aberto à participação da comunidade.</p>
+    <p>[INSERIR TEXTO INSTITUCIONAL: história, missão e valores da escola.]</p>
+    <p class="note">Indicadores (alunos, professores etc.) só devem ser exibidos com dados reais.</p>
+  </div>
+</div></section>
 
-    <!-- Contato e Localização -->
-    <section id="contato" class="section bg-light">
-        <div class="container">
-            <h2 class="title-center">Fale Conosco</h2>
-            <div class="contato-grid">
-                <form id="contactForm" class="form-contato">
-                    <input type="text" id="nome" placeholder="Seu Nome Completo" required>
-                    <input type="email" id="email" placeholder="Seu E-mail" required>
-                    <input type="text" id="assunto" placeholder="Assunto (ex: Matrícula, Dúvidas)" required>
-                    <textarea id="mensagem" rows="5" placeholder="Sua Mensagem..." required></textarea>
-                    <button type="submit" class="btn">Enviar Mensagem</button>
-                </form>
-                <div class="info-contato">
-                    <p><i class="fa-solid fa-location-dot"></i> Av. Das Escolas, 123 - Centro</p>
-                    <p><i class="fa-solid fa-phone"></i> (00) 1234-5678</p>
-                    <p><i class="fa-solid fa-envelope"></i> contato@escolanovohorizonte.com.br</p>
-                    <p><i class="fa-solid fa-clock"></i> Segunda a Sexta: 07h às 18h</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ENSINO -->
+<section id="ensino" class="sec alt"><div class="wrap">
+  <h2>Ensino</h2>
+  <div class="two" id="ensinoBox"></div>
+</div></section>
 
-    <!-- Rodapé -->
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 Escola Novo Horizonte. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+<!-- FUNCIONÁRIOS -->
+<section id="funcionarios" class="sec"><div class="wrap">
+  <h2>Nossa Equipe</h2>
+  <p>Conheça os profissionais que fazem parte da comunidade escolar.</p>
+  <div class="tools"><input id="buscaFunc" type="search" placeholder="🔎 Buscar funcionário..." aria-label="Buscar funcionário"><div class="chips" id="chipsFunc"></div></div>
+  <div class="grid4" id="gridFunc"></div>
+</div></section>
 
-    <script src="script.js"></script>
+<!-- EVENTOS -->
+<section id="eventos" class="sec alt"><div class="wrap">
+  <h2>Eventos</h2>
+  <div class="chips" id="chipsEv"></div>
+  <div class="calwrap">
+    <div class="cal">
+      <div class="calhd"><button id="prev" aria-label="Mês anterior">&#8249;</button><strong id="calTitulo"></strong><button id="next" aria-label="Próximo mês">&#8250;</button></div>
+      <div class="calgrid" id="calGrid"></div>
+    </div>
+    <div><h3>Neste mês</h3><div id="evLista" class="list"></div></div>
+  </div>
+</div></section>
+
+<!-- PRIMAVERA FEST -->
+<section id="primavera" class="spring"><div class="wrap">
+  <h2>Primavera Fest</h2>
+  <p class="lead">[INSERIR DESCRIÇÃO DO EVENTO: propósito, público, atividades.]</p>
+  <div class="split2">
+    <ol class="timeline" id="timeline"></ol>
+    <div class="gal" id="gal" aria-label="Galeria de fotos"></div>
+  </div>
+</div></section>
+
+<!-- NOTÍCIAS -->
+<section id="noticias" class="sec"><div class="wrap">
+  <h2>Notícias e Comunicados</h2>
+  <div class="tools"><input id="buscaNot" type="search" placeholder="🔎 Buscar notícias" aria-label="Buscar notícias"><div class="chips" id="chipsNot"></div></div>
+  <div class="news" id="news"></div>
+</div></section>
+
+<!-- GALERIA DA ESCOLA -->
+<section id="galeria" class="sec alt"><div class="wrap"><h2>Galeria da Escola</h2><div class="chips" id="chipsGal"></div><div class="mosaic" id="mosaic"></div></div></section>
+
+<!-- ALUNOS / RESPONSÁVEIS: links editáveis em script.js -->
+<section id="alunos" class="sec"><div class="wrap"><h2>Área do Aluno</h2><div class="links" id="linksAlunos"></div></div></section>
+<section id="responsaveis" class="sec alt"><div class="wrap"><h2>Área dos Responsáveis</h2><div class="links" id="linksResp"></div></div></section>
+
+<!-- PEDAGOGIA -->
+<section id="pedagogia" class="sec"><div class="wrap split">
+  <div>
+    <h2>Pedagogia</h2>
+    <p>[INSERIR TEXTO: acompanhamento pedagógico, orientação, projetos, reuniões, apoio aos estudantes e informações para as famílias.]</p>
+  </div>
+  <div><h3>Perguntas frequentes</h3><div class="faq" id="faq"></div></div>
+</div></section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao" class="sec alt"><div class="wrap split">
+  <div>
+    <h2>Onde Estamos</h2>
+    <p><b>Endereço:</b> [INSERIR ENDEREÇO]</p>
+    <p><b>Telefone:</b> [INSERIR TELEFONE]</p>
+    <p><b>Atendimento:</b> [INSERIR HORÁRIO]</p>
+    <a class="btn red" href="#" id="comoChegar">Como chegar</a>
+  </div>
+  <!-- Cole aqui o iframe do Google Maps -->
+  <div class="map">[INSERIR MAPA — iframe do Google Maps]</div>
+</div></section>
+
+<!-- CONTATO -->
+<section id="contato" class="contact"><div class="wrap split">
+  <div>
+    <h2>Entre em Contato</h2>
+    <p>Telefone: [INSERIR TELEFONE]</p><p>E-mail: [INSERIR E-MAIL]</p><p>Endereço: [INSERIR ENDEREÇO]</p><p>Horário: [INSERIR HORÁRIO]</p>
+  </div>
+  <form id="form" novalidate>
+    <label>Nome<input name="nome" required></label>
+    <label>E-mail<input name="email" type="email" required></label>
+    <label>Assunto<input name="assunto" required></label>
+    <label>Mensagem<textarea name="mensagem" rows="4" required></textarea></label>
+    <button class="btn red" type="submit">Enviar mensagem</button>
+    <p id="formMsg" role="status"></p>
+  </form>
+</div></section>
+</main>
+
+<!-- RODAPÉ -->
+<footer><div class="wrap fgrid">
+  <div><img src="assets/logo.png" alt="Logo do colégio"><p><b>Colégio Estadual do Campo Irmã Ambrosia Sabatovich</b></p><p>Educando para a Comunidade</p></div>
+  <div><h4>Colégio</h4><a href="#escola">A Escola</a><a href="#ensino">Ensino</a><a href="#funcionarios">Funcionários</a></div>
+  <div><h4>Informações</h4><a href="#noticias">Notícias</a><a href="#galeria">Galeria</a><a href="#eventos">Eventos</a><a href="#primavera">Primavera Fest</a></div>
+  <div><h4>Atendimento</h4><a href="#pedagogia">Pedagogia</a><a href="#contato">Contato</a><a href="#localizacao">Localização</a></div>
+</div>
+<p class="copy">© <span id="ano">[ANO]</span> Colégio Estadual do Campo Irmã Ambrosia Sabatovich. Todos os direitos reservados.</p></footer>
+
+<button id="topo" aria-label="Voltar ao topo">&#8593;</button>
+
+<!-- MODAL GENÉRICO -->
+<div id="modal" class="ov" hidden role="dialog" aria-modal="true"><div class="box"><button class="x" aria-label="Fechar">&times;</button><div id="mBody"></div></div></div>
+<!-- LIGHTBOX -->
+<div id="lb" class="ov dark" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" aria-label="Fechar">&times;</button><button class="nav l" aria-label="Foto anterior">&#8249;</button><figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure><button class="nav r" aria-label="Próxima foto">&#8250;</button></div>
+<script src="script.js"></script>
 </body>
 </html>
+
