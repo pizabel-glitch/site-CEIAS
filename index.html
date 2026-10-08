@@ -3,65 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CEIAS - Calendário & Grade Escolar</title>
+  <title>Colégio Estadual do Campo Irmã Ambrósia Sabatovich — CEIAS</title>
+  <meta name="description" content="Educando para a Comunidade. Ensino Fundamental e Médio na Colônia Marcelino, São José dos Pinhais - PR.">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="CEIAS — Colégio Estadual do Campo Irmã Ambrósia Sabatovich">
+  <meta property="og:description" content="Educando para a Comunidade — Ensino Fundamental e Médio.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="container">
-    <header class="section-header">
-      <span class="badge-tag">✦ Gestão Escolar & Atividades</span>
-      <h1 class="section-title">Calendário & <span>Grade Curricular</span></h1>
-      <p class="section-description">
-        Acompanhe as matérias, professores responsáveis e eventos programados no CEIAS.
-      </p>
-    </header>
-
-    <div class="events-grid-layout">
-      <!-- Calendário -->
-      <section class="calendar-card">
-        <div class="calendar-header">
-          <h2 class="calendar-month" id="calendar-month-year">Outubro 2026</h2>
-          <div class="calendar-nav">
-            <button class="btn-icon" id="prev-month">‹</button>
-            <button class="btn-icon" id="next-month">›</button>
-          </div>
-        </div>
-
-        <div class="calendar-weekdays">
-          <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-        </div>
-
-        <div class="calendar-days" id="calendar-days-grid"></div>
-      </section>
-
-      <!-- Lista de Eventos e Aulas -->
-      <section class="events-list-wrapper">
-        <div class="filters-bar">
-          <button class="filter-btn active" data-filter="Todos">Todos</button>
-          <button class="filter-btn" data-filter="Especial">Especiais</button>
-          <button class="filter-btn" data-filter="Cultura">Cultura</button>
-          <button class="filter-btn" data-filter="Escolar">Escolar</button>
-        </div>
-
-        <div class="events-cards-container" id="events-list"></div>
-      </section>
-    </div>
-  </main>
-
-  <!-- Modal de Detalhes -->
-  <div class="modal-overlay" id="event-modal">
-    <div class="modal-card">
-      <button class="modal-close" id="modal-close">✕</button>
-      <div id="modal-content"></div>
+  <!-- Acessibilidade e Configurações -->
+  <div id="painel" class="panel-a11y" hidden>
+    <h2>Acessibilidade</h2>
+    <div class="a11y-controls">
+      <button data-a="mais" type="button">Aumentar Texto (+)</button>
+      <button data-a="menos" type="button">Diminuir Texto (-)</button>
+      <button data-a="contraste" type="button">Alto Contraste</button>
+      <button data-a="escuro" type="button">Modo Escuro</button>
+      <button data-a="quieto" type="button">Reduzir Animações</button>
+      <button data-a="reset" type="button">Restaurar Padrão</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Cabeçalho / Navegação -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#inicio" class="logo">
+        <span class="logo-title">CEIAS</span>
+        <small class="logo-sub">Colônia Marcelino</small>
+      </a>
+
+      <div class="header-actions">
+        <button id="bAcess" aria-expanded="false" type="button" aria-label="Abrir opções de acessibilidade">♿</button>
+        <button id="bBusca" type="button" aria-label="Buscar no site">🔍</button>
+        <button id="bMenu" aria-expanded="false" aria-label="Abrir menu" type="button">☰</button>
+      </div>
+
+      <nav id="nav" class="nav">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">O Colégio</a></li>
+          <li><a href="#calendario">Agenda</a></li>
+          <li><a href="#equipe" data-needs="pessoas">Equipe</a></li>
+          <li><a href="#noticias" data-needs="noticias">Notícias</a></li>
+          <li><a href="#galeria" data-needs="fotos">Galeria</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+      <div id="stars" class="stars-container"></div>
+      <div class="hero-in">
+        <span class="badge">Colégio Estadual do Campo</span>
+        <h1>Irmã Ambrósia Sabatovich</h1>
+        <p class="slogan">"Educando para a Comunidade"</p>
+        <div class="hero-actions">
+          <a href="#calendario" class="btn">Calendário Escolar 2026</a>
+          <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hoje no CEIAS -->
+    <section id="hoje" class="panel" hidden>
+      <h2>Destaque de Hoje</h2>
+      <div id="hojeBox" class="hoje-grid"></div>
+    </section>
+
+    <!-- Sobre o Colégio -->
+    <section id="sobre" class="panel">
+      <h2>Sobre o CEIAS</h2>
+      <p>Localizado na Colônia Marcelino em São José dos Pinhais — PR, o Colégio Estadual do Campo Irmã Ambrósia Sabatovich oferece Ensino Fundamental e Ensino Médio focados no desenvolvimento comunitário e valorização da cultura do campo.</p>
+      
+      <div id="timeline" hidden class="timeline"></div>
+      <div id="numeros" hidden class="numeros-grid"></div>
+    </section>
+
+    <!-- Calendário e Eventos -->
+    <section id="calendario" class="panel">
+      <h2>Calendário Escolar 2026</h2>
+      <p id="detalhe" class="cal-detalhe">Carregando eventos...</p>
+
+      <div class="cal-controls">
+        <div id="filtros" class="filtros-cats"></div>
+        <div class="cal-nav">
+          <button id="prev" type="button">&lt; Mês Anterior</button>
+          <strong id="mes">Fevereiro de 2026</strong>
+          <button id="next" type="button">Próximo Mês &gt;</button>
+        </div>
+        <div class="cal-views">
+          <button id="vGrade" aria-pressed="true" type="button">Grade</button>
+          <button id="vLista" aria-pressed="false" type="button">Lista</button>
+        </div>
+      </div>
+
+      <div id="grade" class="cal-grade"></div>
+      <div id="lista" class="cal-lista" hidden></div>
+
+      <div class="proximos-eventos">
+        <h3>Próximos Eventos</h3>
+        <ul id="proxLista" class="eventos-list"></ul>
+      </div>
+    </section>
+
+    <!-- Equipe Escolar -->
+    <section id="equipe" class="panel" hidden>
+      <div class="section-head">
+        <h2>Nossa Equipe</h2>
+        <button id="abrirCadastro" class="btn-sm" type="button">+ Adicionar Integrante</button>
+      </div>
+      <div id="eqFiltros" class="filtros-cats"></div>
+      <ul id="eqLista" class="staff-grid"></ul>
+      <p id="semProfissionais" hidden>Nenhum profissional cadastrado nesta categoria.</p>
+    </section>
+
+    <!-- Notícias -->
+    <section id="noticias" class="panel" hidden>
+      <h2>Notícias e Comunicados</h2>
+      <input type="search" id="notBusca" placeholder="Buscar notícias..." aria-label="Buscar notícias">
+      <div id="notLista" class="news-grid"></div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="panel" hidden>
+      <h2>Galeria de Fotos</h2>
+      <div id="galFiltros" class="filtros-cats"></div>
+      <ul id="galLista" class="gallery-grid"></ul>
+    </section>
+
+    <!-- Pedagogia / FAQ -->
+    <section id="pedagogia" class="panel" hidden>
+      <h2>Perguntas Frequentes</h2>
+      <div id="faq" class="faq-list"></div>
+    </section>
+
+    <!-- Localização e Contato -->
+    <section id="contato" class="panel">
+      <h2>Contato e Localização</h2>
+      <div class="contato-grid">
+        <div class="contato-info">
+          <h3>Informações</h3>
+          <p id="conInfo">Carregando contato...</p>
+          <div id="linkAlunos"></div>
+        </div>
+
+        <form id="form" class="form-contato" novalidate>
+          <h3>Envie uma Mensagem</h3>
+          
+          <label for="fn">Nome:</label>
+          <input type="text" id="fn" required>
+          <span id="e-fn" class="err-msg"></span>
+
+          <label for="fe">E-mail:</label>
+          <input type="email" id="fe" required>
+          <span id="e-fe" class="err-msg"></span>
+
+          <label for="fa">Assunto:</label>
+          <input type="text" id="fa" required>
+          <span id="e-fa" class="err-msg"></span>
+
+          <label for="fm">Mensagem:</label>
+          <textarea id="fm" rows="4" required></textarea>
+          <span id="e-fm" class="err-msg"></span>
+
+          <button type="submit" class="btn">Enviar</button>
+          <p id="formMsg" class="form-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div id="localizacao" hidden class="mapa-container">
+        <h3>Como Chegar</h3>
+        <div id="locBox"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong>
+        <p id="footContato"></p>
+      </div>
+      <div>
+        <p>&copy; <span id="ano"></span> CEIAS. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Busca -->
+  <dialog id="busca" class="modal">
+    <form method="dialog">
+      <header class="modal-header">
+        <h3>Buscar no Site</h3>
+        <button type="submit" aria-label="Fechar">✕</button>
+      </header>
+      <input type="search" id="q" placeholder="Digite para pesquisar..." autocomplete="off">
+      <ul id="res" class="busca-resultados"></ul>
+    </form>
+  </dialog>
+
+  <!-- Modal de Cadastro/Edição de Equipe -->
+  <dialog id="staffModal" class="modal">
+    <form id="staffForm" class="modal-form">
+      <header class="modal-header">
+        <h3 id="staffModalTitle">Adicionar Profissional</h3>
+        <button type="button" data-close-staff aria-label="Fechar">✕</button>
+      </header>
+      
+      <div class="form-group">
+        <label for="sfNome">Nome completo *</label>
+        <input type="text" id="sfNome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sfFuncao">Função / Cargo *</label>
+        <input type="text" id="sfFuncao" placeholder="Ex: Professor(a) de Matemática" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sfGrupo">Grupo *</label>
+        <select id="sfGrupo">
+          <option value="Professores">Professores</option>
+          <option value="Direção">Direção</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Administrativo">Administrativo</option>
+          <option value="Serviços">Serviços</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="sfArea">Área / Disciplina</label>
+        <input type="text" id="sfArea" placeholder="Ex: Ciências Humanas">
+      </div>
+
+      <div class="form-group">
+        <label for="sfBio">Biografia / Resumo</label>
+        <textarea id="sfBio" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="sfFoto">Foto</label>
+        <input type="file" id="sfFoto" accept="image/*">
+        <div id="staffPreview" class="photo-preview"><span>Prévia da foto</span></div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" data-close-staff class="btn-secondary">Cancelar</button>
+        <button type="submit" class="btn">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Lightbox para Galeria de Fotos -->
+  <dialog id="lb" class="modal modal-lightbox">
+    <form method="dialog">
+      <button type="submit" class="btn-close-lb" aria-label="Fechar galeria">✕</button>
+      <div class="lightbox-content">
+        <button type="button" id="lbP" aria-label="Anterior">&lt;</button>
+        <img id="lbImg" src="" alt="">
+        <button type="button" id="lbN" aria-label="Próxima">&gt;</button>
+      </div>
+      <p id="lbCap" class="lightbox-caption"></p>
+    </form>
+  </dialog>
+
+  <!-- SVG Sprite para ícones -->
+  <svg style="display:none;">
+    <symbol id="st" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6-6.3 4.6 2.3-7.1-6-4.5h7.6z"/>
+    </symbol>
+  </svg>
+
+  <script src="app.js"></script>
 </body>
 </html>
