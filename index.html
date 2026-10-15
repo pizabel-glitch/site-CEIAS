@@ -2,225 +2,169 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colégio Estadual do Campo Irmã Ambrósia Sabatovich — CEIAS</title>
-  <meta name="description" content="Educando para a Comunidade. Ensino Fundamental e Médio na Colônia Marcelino, São José dos Pinhais - PR.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Barra de Acessibilidade -->
-  <div id="painel" class="panel-a11y" hidden>
-    <div class="a11y-container">
-      <span><strong>Acessibilidade:</strong></span>
-      <button data-a="mais" type="button" title="Aumentar texto">A+</button>
-      <button data-a="menos" type="button" title="Diminuir texto">A-</button>
-      <button data-a="contraste" type="button">Alto Contraste</button>
-      <button data-a="escuro" type="button">Modo Escuro</button>
-      <button data-a="reset" type="button">Restaurar</button>
-    </div>
-  </div>
-
-  <!-- Cabeçalho Flutuante -->
-  <header class="header">
-    <div class="header-container">
-      <a href="#inicio" class="brand">
-        <img src="logo colegio.jpg" alt="Logo CEIAS" class="brand-logo">
-        <div class="brand-text">
-          <span class="brand-name">C.E.I.A.S.</span>
-          <span class="brand-sub">Col. Est. do Campo Ir. Ambrósia Sabatovich</span>
-        </div>
-      </a>
-
-      <nav id="nav" class="nav">
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">O Colégio</a></li>
-          <li><a href="#equipe">Equipe</a></li>
-          <li><a href="#calendario">Calendário SEED</a></li>
-          <li><a href="#noticias">Notícias</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <button id="bAcess" aria-label="Acessibilidade" type="button" class="icon-btn">♿</button>
-        <button id="bMenu" aria-label="Abrir Menu" type="button" class="icon-btn menu-btn">☰</button>
-      </div>
-    </div>
+  <!-- Navegação -->
+  <header class="nav">
+    <a href="#capa" class="brand">C.E.I.A.S.</a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu">
+      <a href="#acesso">Acesso rápido</a>
+      <a href="#escola">O colégio</a>
+      <a href="#equipe">Nossa equipe</a>
+      <a href="#calendario">Calendário</a>
+      <a href="#contato">Contato</a>
+    </nav>
   </header>
 
-  <main>
-    <!-- Hero / Boas-Vindas -->
-    <section id="inicio" class="hero">
-      <div class="hero-bg-shapes">
-        <span class="star-decor red-star">★</span>
-        <span class="star-decor yellow-star s1">★</span>
-        <span class="star-decor yellow-star s2">★</span>
+  <!-- Capa / Hero -->
+  <section id="capa" class="hero reveal">
+    <div class="stars" id="stars" aria-hidden="true"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="hero-in">
+      <div class="logo-wrap">
+        <div class="halo"></div>
+        <img src="logo.jpg" alt="Logotipo do Colégio Estadual do Campo Irmã Ambrósia Sabatovich" class="logo">
       </div>
-      <div class="hero-content">
-        <div class="badge-tag">Colônia Marcelino — São José dos Pinhais</div>
-        <h1>Colégio Estadual do Campo<br><span class="highlight-blue">Irmã Ambrósia Sabatovich</span></h1>
-        <p class="slogan">"Educando para a Comunidade"</p>
-        
-        <div class="hero-cta">
-          <a href="#calendario" class="btn btn-primary">📅 Calendário Escolar SEED</a>
-          <a href="#equipe" class="btn btn-secondary">👥 Conheça Nossa Equipe</a>
-        </div>
+      <p class="kicker">Colônia Marcelino · São José dos Pinhais · PR</p>
+      <h1>Colégio Estadual do Campo<br><em>Irmã Ambrósia Sabatovich</em></h1>
+      <p class="sub">Ensino Fundamental e Médio</p>
+      <div class="cta">
+        <a class="btn" href="#calendario">Ver calendário</a>
+        <a class="btn ghost" href="#equipe">Conheça a equipe</a>
       </div>
-    </section>
-
-    <!-- Sobre o Colégio -->
-    <section id="sobre" class="section">
-      <div class="container grid-2">
-        <div class="about-card">
-          <span class="section-subtitle">Nossa Identidade</span>
-          <h2>Tradição e Educação no Campo</h2>
-          <p>O <strong>C.E.I.A.S.</strong> atua no fortalecimento da comunidade da Colônia Marcelino, oferecendo Ensino Fundamental e Médio com valorização das raízes locais, cidadania e inovação pedagógica.</p>
-          
-          <ul class="about-features">
-            <li><span class="bullet-star">★</span> Ensino Fundamental e Médio Regular</li>
-            <li><span class="bullet-star">★</span> Projetos Integrados à Comunidade Agrícola</li>
-            <li><span class="bullet-star">★</span> Ambiente Acolhedor e Atividades Culturais</li>
-          </ul>
-        </div>
-        <div class="about-badge-box">
-          <div class="stat-card">
-            <span class="stat-num">200+</span>
-            <span class="stat-desc">Dias Letivos de Aprendizado Ativo</span>
-          </div>
-          <div class="stat-card accent">
-            <span class="stat-num">100%</span>
-            <span class="stat-desc">Compromisso com a Comunidade</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Equipe Escolar (Profissionais / Professores) -->
-    <section id="equipe" class="section bg-light">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Quem Faz Acontecer</span>
-          <h2>Nossa Equipe Pedagógica e Administrativa</h2>
-          <p>Profissionais dedicados ao desenvolvimento integral dos nossos alunos.</p>
-        </div>
-
-        <!-- Filtros de Equipe -->
-        <div class="team-filters">
-          <button class="filter-btn active" data-filter="todos">Todos</button>
-          <button class="filter-btn" data-filter="Direção">Direção e Pedagogia</button>
-          <button class="filter-btn" data-filter="Professores">Professores</button>
-          <button class="filter-btn" data-filter="Funcionários">Administrativo e Apoio</button>
-        </div>
-
-        <!-- Cards Dinâmicos de Funcionários -->
-        <div id="teamGrid" class="team-grid">
-          <!-- Gerado via JavaScript -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Calendário Escolar Padrão SEED-PR -->
-    <section id="calendario" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Acompanhamento Escolar</span>
-          <h2>Calendário Escolar SEED-PR</h2>
-          <p>Siga os dias letivos, reuniões pedagógicas e recessos conforme as diretrizes estaduais.</p>
-        </div>
-
-        <!-- Legenda de Cores SEED -->
-        <div class="cal-legend">
-          <div class="legend-item"><span class="dot letivo"></span> Dia Letivo</div>
-          <div class="legend-item"><span class="dot recesso"></span> Recesso / Feriado</div>
-          <div class="legend-item"><span class="dot planejamento"></span> Estudo / Planejamento (Sem Alunos)</div>
-          <div class="legend-item"><span class="dot conselho"></span> Conselho de Classe / Eventos</div>
-        </div>
-
-        <!-- Controles do Calendário -->
-        <div class="cal-card">
-          <div class="cal-header">
-            <button id="calPrev" class="cal-btn">&lt; Mês Anterior</button>
-            <h3 id="calMonthTitle">Fevereiro</h3>
-            <button id="calNext" class="cal-btn">Próximo Mês &gt;</button>
-          </div>
-
-          <div class="cal-weekdays">
-            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
-          </div>
-
-          <div id="calGrid" class="cal-days-grid">
-            <!-- Dias gerados via JavaScript -->
-          </div>
-        </div>
-
-        <div id="dayDetailBox" class="day-detail-box hidden">
-          <h4>Detalhes do Dia <span id="detailDate"></span></h4>
-          <p id="detailText">Selecione um dia no calendário para ver os detalhes.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contato e Localização -->
-    <section id="contato" class="section bg-light">
-      <div class="container grid-2">
-        <div class="contact-info">
-          <h2>Fale Conosco</h2>
-          <p>Estamos à disposição para atender alunos, pais e a comunidade.</p>
-          
-          <div class="info-item">
-            <span class="icon">📍</span>
-            <div>
-              <strong>Endereço:</strong>
-              <p>Colônia Marcelino, São José dos Pinhais - PR</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <span class="icon">📞</span>
-            <div>
-              <strong>Telefone / WhatsApp:</strong>
-              <p>(41) 3000-0000</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <span class="icon">✉️</span>
-            <div>
-              <strong>E-mail Institucional:</strong>
-              <p>ceias@escola.pr.gov.br</p>
-            </div>
-          </div>
-        </div>
-
-        <form id="contactForm" class="contact-form">
-          <h3>Envie uma Mensagem</h3>
-          <input type="text" placeholder="Seu Nome Completo" required>
-          <input type="email" placeholder="Seu E-mail ou Telefone" required>
-          <select required>
-            <option value="">Selecione o Assunto</option>
-            <option value="matricula">Matrículas e Transferências</option>
-            <option value="pedagogico">Secretaria / Documentos</option>
-            <option value="duvidas">Dúvidas Gerais</option>
-          </select>
-          <textarea rows="4" placeholder="Escreva sua mensagem aqui..." required></textarea>
-          <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-brand">
-        <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong>
-        <p>"Educando para a Comunidade"</p>
-      </div>
-      <p class="copy">&copy; <span id="year"></span> C.E.I.A.S. — Todos os direitos reservados.</p>
     </div>
+  </section>
+
+  <!-- Acesso Rápido -->
+  <section id="acesso" class="sec acesso reveal">
+    <div class="head">
+      <p class="kicker">Navegação facilitada</p>
+      <h2>Acesso Rápido</h2>
+    </div>
+    <div class="ac-grid">
+      <div class="ac">
+        <h3>Serviços e links</h3>
+        <ul class="links">
+          <li><a href="#" target="_blank">Escola Paraná <span>Acesso ao boletim e dados escolares</span></a></li>
+          <li><a href="#" target="_blank">Consulta de Horários <span>Grade de aulas atualizada</span></a></li>
+        </ul>
+      </div>
+      <div class="ac">
+        <h3>Próximos Eventos</h3>
+        <ul id="prox"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Colégio -->
+  <section id="escola" class="sec escola reveal">
+    <div>
+      <p class="kicker">Nossa estrutura</p>
+      <h2>O Colégio</h2>
+      <p>Oferecemos ensino público de qualidade focado no desenvolvimento integral dos alunos da região do campo.</p>
+    </div>
+    <div class="gal">
+      <div class="ph p1">Foto 1</div>
+      <div class="ph p2">Foto 2</div>
+      <div class="ph p3">Foto 3</div>
+    </div>
+  </section>
+
+  <!-- Equipe -->
+  <section id="equipe" class="sec equipe reveal">
+    <p class="kicker">Corpo docente e administrativo</p>
+    <h2>Nossa Equipe</h2>
+    <div class="grp">Direção e Pedagogia</div>
+    <div class="grupo">
+      <div class="pessoa f1">
+        <div class="foto">Sem foto</div>
+        <h4>Nome do Diretor</h4>
+        <p class="cargo">Direção Geral</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendário Escolar -->
+  <section id="calendario" class="sec cal reveal">
+    <p class="kicker">Datas e compromissos</p>
+    <h2>Calendário Escolar <span id="ano"></span></h2>
+
+    <!-- Alternador Mês / Ano -->
+    <div class="vis">
+      <button id="vm" class="on">Visão Mensal</button>
+      <button id="va">Visão Anual</button>
+    </div>
+
+    <!-- Barra Trimestral -->
+    <div class="tribar" id="tribar"></div>
+
+    <div class="cal-grid">
+      <div class="cal-box">
+        <div class="cal-top">
+          <button id="prev" aria-label="Anterior">‹</button>
+          <h3 id="mes"></h3>
+          <button id="next" aria-label="Próximo">›</button>
+        </div>
+
+        <div class="dow">
+          <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+        </div>
+
+        <!-- Grade de Dias (Mensal) -->
+        <div class="days" id="days"></div>
+
+        <!-- Visão Anual (Oculta por padrão) -->
+        <div id="anoview" hidden></div>
+      </div>
+
+      <div class="cal-list">
+        <h4 id="seltit">Selecione uma data</h4>
+        <div id="evs">
+          <p class="pend">Clique em uma data no calendário para visualizar os eventos detalhados.</p>
+        </div>
+
+        <h4 class="small">Eventos Oficiais do Mês</h4>
+        <ul id="mlist"></ul>
+
+        <h4 class="small">Legenda</h4>
+        <ul class="leg">
+          <li><span class="d feriado"></span> Feriado</li>
+          <li><span class="d tri"></span> Trimestre</li>
+          <li><span class="d comem"></span> Comemorativo</li>
+          <li><span class="d escola"></span> Evento Escolar</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="sec contato reveal">
+    <p class="kicker">Fale conosco</p>
+    <h2>Contato</h2>
+    <ul class="info">
+      <li><strong>Endereço:</strong> Colônia Marcelino, São José dos Pinhais - PR</li>
+      <li><strong>Telefone:</strong> (41) 0000-0000</li>
+    </ul>
+  </section>
+
+  <button class="topo" id="topo" aria-label="Voltar ao topo">↑</button>
+
+  <footer>
+    <p>© Colégio Estadual do Campo Irmã Ambrósia Sabatovich - Todos os direitos reservados.</p>
   </footer>
 
-  <script src="app.js"></script>
+  <!-- Carregamento do Script -->
+  <script src="script.js"></script>
 </body>
 </html>

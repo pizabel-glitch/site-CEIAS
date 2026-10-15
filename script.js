@@ -1,162 +1,74 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
+// Estrelas flutuantes
+const sc=document.getElementById('stars'),cores=['#f4c92e','#f7dc5c','#d9352e','#9cc6e8','#f4c92e'];
+for(let i=0;i<18;i++){const s=document.createElement('span'),z=6+Math.random()*16;s.className='star';
+ s.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;--c:${cores[i%5]};--o:${.35+Math.random()*.5};--t:${12+Math.random()*16}s;--dl:-${Math.random()*20}s;--x:${(Math.random()-.5)*80}px`;sc.appendChild(s)}
+// Menu
+const bg=document.getElementById('burger'),mn=document.getElementById('menu');
+bg.onclick=()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.querySelectorAll('a').forEach(a=>a.onclick=()=>mn.classList.remove('open'));
+// Aparecer ao rolar
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+document.getElementById('ano').textContent=new Date().getFullYear();
+// Calendário — fonte: SEED-PR, Resolução 6.494/2025 (calendário escolar 2026)
+// Para incluir evento da escola: adicione { d:'2026-11-10', t:'escola', n:'Nome do evento' } em ESCOLA.
+const SEED=[
+ ['2026-01-01','feriado','Ano Novo'],['2026-04-03','feriado','Paixão de Cristo'],['2026-04-05','feriado','Páscoa'],['2026-04-21','feriado','Tiradentes'],
+ ['2026-05-01','feriado','Dia do Trabalho'],['2026-06-04','feriado','Corpus Christi'],['2026-09-07','feriado','Independência'],['2026-10-12','feriado','N. Sra. Aparecida'],
+ ['2026-11-02','feriado','Finados'],['2026-11-15','feriado','Proclamação da República'],['2026-11-20','feriado','Consciência Negra'],['2026-12-25','feriado','Natal'],
+ ['2026-02-05','tri','Início do 1º trimestre e das aulas (63 dias letivos)'],['2026-05-14','tri','Fim do 1º trimestre'],
+ ['2026-05-18','tri','Início do 2º trimestre (68 dias letivos)'],['2026-09-04','tri','Fim do 2º trimestre'],
+ ['2026-09-08','tri','Início do 3º trimestre (70 dias letivos)'],['2026-12-18','tri','Fim do 3º trimestre e do ano letivo'],
+ ['2026-08-07','comem','Dia do Funcionário de Escola'],['2026-08-11','comem','Dia do Estudante'],['2026-10-13','comem','Dia do Professor (antecipado) e Redução do Risco de Desastres'],
+ ['2026-10-28','comem','Dia do Servidor Público'],
+ ['2026-03-16','comem','Semana de combate à violência contra a mulher (16 a 20/03)'],['2026-03-17','comem','Semana de combate à violência contra a mulher'],['2026-03-18','comem','Semana de combate à violência contra a mulher'],['2026-03-19','comem','Semana de combate à violência contra a mulher'],['2026-03-20','comem','Semana de combate à violência contra a mulher']
+].map(([d,t,n])=>({d,t,n,f:'SEED-PR'}));
+const ESCOLA=[]; // eventos próprios do colégio (ainda não informados)
+const EV=SEED.concat(ESCOLA.map(e=>({...e,f:'Colégio'})));
+const MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const hoje=new Date();let ano=hoje.getFullYear(),mes=hoje.getMonth(),sel=null;
+const iso=(a,m,d)=>`${a}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+const pt=d=>d.split('-').reverse().join('/');
+function mostra(d){sel=d;const l=EV.filter(e=>e.d===d);document.getElementById('seltit').textContent=pt(d);
+ document.getElementById('evs').innerHTML=l.length?l.map(e=>`<div class="ev">${e.n}<small>Fonte: ${e.f}</small></div>`).join(''):'<p class="pend">Nenhum evento oficial cadastrado. Dias de aula, recessos e planejamento: confirme no PDF da SEED-PR.</p>';render()}
+function renderMes(){document.getElementById('mes').textContent=`${MESES[mes]} ${ano}`;
+ const p=new Date(ano,mes,1).getDay(),n=new Date(ano,mes+1,0).getDate();let h='';
+ for(let i=0;i<p;i++)h+='<span></span>';
+ for(let d=1;d<=n;d++){const k=iso(ano,mes,d),ts=[...new Set(EV.filter(e=>e.d===k).map(e=>e.t))],w=new Date(ano,mes,d).getDay();
+  const c=[(k===iso(hoje.getFullYear(),hoje.getMonth(),hoje.getDate())?'hoje':''),(k===sel?'sel':''),(w%6==0?'fim':'')].join(' ');
+  h+=`<button class="${c}" data-d="${k}">${d}<span class="dots">${ts.map(t=>`<i class="d ${t==='escola'?'escola':t}" style="margin:0"></i>`).join('')}</span></button>`}
+ const D=document.getElementById('days');D.innerHTML=h;D.querySelectorAll('button').forEach(b=>b.onclick=()=>mostra(b.dataset.d));
+ const pre=`${ano}-${String(mes+1).padStart(2,'0')}`,L=EV.filter(e=>e.d.startsWith(pre)&&!e.n.startsWith('Semana de combate')||e.d===pre+'-16'&&e.n.includes('(16'));
+ document.getElementById('mlist').innerHTML=L.length?L.sort((a,b)=>a.d.localeCompare(b.d)).map(e=>`<li><b>${pt(e.d).slice(0,5)}</b> · ${e.n}</li>`).join(''):'<li>Sem datas oficiais cadastradas neste mês.</li>'}
+let modo='mes';
+const $=i=>document.getElementById(i);
+function renderAno(){$('mes').textContent=ano;let h='';
+ for(let m=0;m<12;m++){const p=new Date(ano,m,1).getDay(),n=new Date(ano,m+1,0).getDate();let g='';
+  for(let i=0;i<p;i++)g+='<i></i>';
+  for(let d=1;d<=n;d++){const k=iso(ano,m,d),t=EV.find(e=>e.d===k);g+=`<i class="${t?'ev-'+t.t:''}">${d}</i>`}
+  h+=`<button class="mini" data-m="${m}"><b>${MESES[m]}</b><span>${g}</span></button>`}
+ if(ano!==2026)h+='<p class="pend" style="grid-column:1/-1">Não há calendário oficial da SEED-PR cadastrado para '+ano+'.</p>';
+ $('anoview').innerHTML=h;$('anoview').querySelectorAll('.mini').forEach(b=>b.onclick=()=>{mes=+b.dataset.m;modo='mes';render()})}
+function render(){const a=modo==='ano';$('anoview').hidden=!a;$('days').hidden=a;document.querySelector('.dow').hidden=a;
+ $('vm').classList.toggle('on',!a);$('va').classList.toggle('on',a);
+ if(a){renderAno();$('mlist').innerHTML='';}else renderMes()}
+$('vm').onclick=()=>{modo='mes';render()};$('va').onclick=()=>{modo='ano';render()};
+$('prev').onclick=()=>{if(modo==='ano')ano--;else if(--mes<0){mes=11;ano--}render()};
+$('next').onclick=()=>{if(modo==='ano')ano++;else if(++mes>11){mes=0;ano++}render()};
+// Barra dos trimestres 2026 (datas SEED-PR)
+(()=>{const T=[['1º trimestre','2026-02-05','2026-05-14','63 dias letivos'],['2º trimestre','2026-05-18','2026-09-04','68 dias letivos'],['3º trimestre','2026-09-08','2026-12-18','70 dias letivos']],
+ D=s=>new Date(s+'T12:00'),a0=D(T[0][1]),a1=D(T[2][2]),tot=a1-a0,ag=new Date();
+ $('tribar').innerHTML=T.map(([n,i,f,l])=>{const w=(D(f)-D(i))/tot*100,at=ag>=D(i)&&ag<=D(f);
+  return `<div class="seg${at?' atual':''}" style="flex:${w}"><b>${n}</b><span>${pt(i).slice(0,5)} a ${pt(f).slice(0,5)} · ${l}</span></div>`}).join('')})();
+render();
 
-  // ------------------------------------------------------------------
-  // 1. Dados dos Funcionários da Escola
-  // ------------------------------------------------------------------
-  const equipe = [
-    {
-      nome: "Prof. Maria Silva",
-      cargo: "Direção Geral",
-      grupo: "Direção",
-      foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80",
-      desc: "Gestão escolar e projetos comunitários."
-    },
-    {
-      nome: "Prof. Carlos Andrade",
-      cargo: "Pedagogo",
-      grupo: "Direção",
-      foto: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80",
-      desc: "Acompanhamento e orientação dos alunos."
-    },
-    {
-      nome: "Ana Paula Souza",
-      cargo: "Profª. de Matemática",
-      grupo: "Professores",
-      foto: "https://images.unsplash.com/photo-1580894732413-801111b24539?auto=format&fit=crop&w=300&q=80",
-      desc: "Ensino Fundamental e Médio."
-    },
-    {
-      nome: "João Pedro Oliveira",
-      cargo: "Prof. de História e Geografia",
-      grupo: "Professores",
-      foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
-      desc: "Estudos regionais e do campo."
-    },
-    {
-      nome: "Roberto Mendes",
-      cargo: "Secretaria Escolar",
-      grupo: "Funcionários",
-      foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-      desc: "Atendimento e documentação."
-    }
-  ];
+// Próximas datas oficiais
+(()=>{const t=iso(hoje.getFullYear(),hoje.getMonth(),hoje.getDate());
+ const l=SEED.filter(e=>e.d>=t&&e.n!=='Semana de combate à violência contra a mulher').sort((a,b)=>a.d.localeCompare(b.d)).slice(0,4);
+ document.getElementById('prox').innerHTML=l.length?l.map(e=>`<li><b>${pt(e.d).slice(0,5)}</b><span>${e.n}</span></li>`).join(''):'<li>Sem próximas datas cadastradas.</li>'})();
+// Voltar ao topo e item ativo do menu
+const tp=document.getElementById('topo');tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+addEventListener('scroll',()=>tp.classList.toggle('on',scrollY>600),{passive:true});
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('ativo',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>so.observe(s));
 
-  function renderEquipe(filtro = "todos") {
-    const grid = document.getElementById("teamGrid");
-    grid.innerHTML = "";
-
-    const filtrados = filtro === "todos" 
-      ? equipe 
-      : equipe.filter(m => m.grupo === filtro);
-
-    filtrados.forEach(membro => {
-      const card = document.createElement("div");
-      card.className = "staff-card";
-      card.innerHTML = `
-        <img src="${membro.foto}" alt="${membro.nome}" class="staff-avatar">
-        <span class="staff-role">${membro.cargo}</span>
-        <h3 class="staff-name">${membro.nome}</h3>
-        <p class="staff-desc">${membro.desc}</p>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  // Filtros de Equipe
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      e.target.classList.add("active");
-      renderEquipe(e.target.dataset.filter);
-    });
-  });
-
-  renderEquipe();
-
-  // ------------------------------------------------------------------
-  // 2. Calendário Escolar Interativo (SEED-PR)
-  // ------------------------------------------------------------------
-  const datasEspeciais = {
-    "2026-02-02": { tipo: "planejamento", desc: "Estudo e Planejamento Pedagógico (Início dos Professores)" },
-    "2026-02-03": { tipo: "planejamento", desc: "Estudo e Planejamento Pedagógico" },
-    "2026-02-04": { tipo: "letivo", desc: "Início do 1º Semestre Letivo 2026" },
-    "2026-02-16": { tipo: "recesso", desc: "Recesso Escolar (Carnaval)" },
-    "2026-02-17": { tipo: "recesso", desc: "Feriado de Carnaval" },
-    "2026-04-03": { tipo: "recesso", desc: "Sexta-feira Santa" },
-    "2026-04-21": { tipo: "recesso", desc: "Feriado - Tiradentes" },
-    "2026-05-01": { tipo: "recesso", desc: "Feriado - Dia do Trabalho" },
-    "2026-07-06": { tipo: "conselho", desc: "Conselho de Classe - Fechamento do 1º Semestre" }
-  };
-
-  let mesAtual = 1; // Fevereiro (index 1)
-  let anoAtual = 2026;
-
-  const meses = [
-    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
-  ];
-
-  function renderCalendario() {
-    const grid = document.getElementById("calGrid");
-    const title = document.getElementById("calMonthTitle");
-    grid.innerHTML = "";
-    
-    title.textContent = `${meses[mesAtual]} de ${anoAtual}`;
-
-    const primerDiaMes = new Date(anoAtual, mesAtual, 1).getDay();
-    const totalDias = new Date(anoAtual, mesAtual + 1, 0).getDate();
-
-    // Espaços em branco do início
-    for (let i = 0; i < primerDiaMes; i++) {
-      const empty = document.createElement("div");
-      empty.className = "cal-day empty";
-      grid.appendChild(empty);
-    }
-
-    // Gerar dias
-    for (let dia = 1; dia <= totalDias; dia++) {
-      const dayEl = document.createElement("div");
-      dayEl.className = "cal-day";
-      dayEl.textContent = dia;
-
-      const mesFmt = String(mesAtual + 1).padStart(2, '0');
-      const diaFmt = String(dia).padStart(2, '0');
-      const chaveData = `${anoAtual}-${mesFmt}-${diaFmt}`;
-
-      const diaSemana = new Date(anoAtual, mesAtual, dia).getDay();
-
-      if (datasEspeciais[chaveData]) {
-        const info = datasEspeciais[chaveData];
-        dayEl.classList.add(`status-${info.tipo}`);
-        dayEl.onclick = () => mostrarDetalhesDia(chaveData, info.desc);
-      } else if (diaSemana !== 0 && diaSemana !== 6) {
-        dayEl.classList.add("status-letivo");
-        dayEl.onclick = () => mostrarDetalhesDia(chaveData, "Dia Letivo Regular");
-      }
-
-      grid.appendChild(dayEl);
-    }
-  }
-
-  function mostrarDetalhesDia(data, info) {
-    const box = document.getElementById("dayDetailBox");
-    const dateEl = document.getElementById("detailDate");
-    const textEl = document.getElementById("detailText");
-
-    const [a, m, d] = data.split("-");
-    dateEl.textContent = `${d}/${m}/${a}`;
-    textEl.textContent = info;
-    box.classList.remove("hidden");
-  }
-
-  document.getElementById("calPrev").onclick = () => {
-    if (mesAtual > 0) { mesAtual--; renderCalendario(); }
-  };
-
-  document.getElementById("calNext").onclick = () => {
-    if (mesAtual < 11) { mesAtual++; renderCalendario(); }
-  };
-
-  renderCalendario();
-});
