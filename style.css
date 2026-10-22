@@ -92,6 +92,144 @@ nav a.ativo{color:var(--blue)}
 .ev{padding:.7rem 0 .7rem 1rem;border-left:3px solid var(--blue);margin-bottom:.6rem;animation:enter .5s both}.ev small{display:block;color:var(--mut)}
 #mlist{list-style:none;padding:0;font-size:.9rem}#mlist li{padding:.3rem 0;border-bottom:1px solid rgba(31,78,156,.1)}
 .contato{background:#fff}.info{list-style:none;padding:0}.info li{margin:.4rem 0}.info a{color:var(--blue);font-weight:700}
+
+/* Estilo do Quadrado de Contato Sofisticado e Compacto */
+.card-contato-wrapper {
+  max-width: 480px;
+  margin: 2rem auto 0;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 16px 40px rgba(31, 78, 156, 0.08);
+  border: 1px solid rgba(31, 78, 156, 0.12);
+  position: relative;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card-contato-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(31, 78, 156, 0.14);
+}
+.card-contato-top {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(31, 78, 156, 0.08);
+  padding-bottom: 1rem;
+}
+.tag-atendimento {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--blue), #2a61ba);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  letter-spacing: .08em;
+  margin-bottom: .6rem;
+}
+.card-contato-top h3 {
+  margin: .3rem 0;
+  color: var(--blue);
+  font-size: 1.5rem;
+}
+.desc-secretaria {
+  font-size: 0.88rem;
+  color: var(--mut);
+  margin: 0;
+}
+.contato-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--sage);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .25s, transform .2s;
+  cursor: pointer;
+}
+.contato-item:hover {
+  background: var(--sky);
+  transform: translateX(4px);
+}
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(31, 78, 156, 0.08);
+  flex-shrink: 0;
+}
+.item-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.92rem;
+}
+.item-text small {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--mut);
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+.item-text strong {
+  color: var(--blue);
+  font-weight: 800;
+}
+.sub-loc {
+  font-size: 0.8rem;
+  color: var(--mut);
+  margin-top: 2px;
+}
+.action-hint {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 99px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.location-item {
+  cursor: default;
+}
+.location-item:hover {
+  transform: none;
+  background: var(--sage);
+}
+.card-contato-footer {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background .25s, transform .2s;
+}
+.btn-maps:hover {
+  background: #173d7c;
+  transform: translateY(-2px);
+}
+
 footer{padding:2rem;text-align:center;font-size:.8rem;background:var(--ink);color:#c9d4e8}
 .topo{position:fixed;right:1rem;bottom:1rem;width:44px;height:44px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:1.2rem;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;z-index:15}.topo.on{opacity:1;pointer-events:auto}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}.reveal.in{opacity:1;transform:none}
@@ -106,6 +244,7 @@ footer{padding:2rem;text-align:center;font-size:.8rem;background:var(--ink);colo
  .sec{padding:4rem 5vw}.gal{grid-template-rows:150px 150px}
  .tribar{flex-direction:column}
  #anoview{grid-template-columns:repeat(2,1fr)}
+ .card-contato-wrapper{padding: 1.5rem;}
 }
 @media(prefers-reduced-motion:reduce){
  *{animation:none!important;transition:none!important}

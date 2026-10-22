@@ -19,6 +19,28 @@ if (bg && mn) {
   mn.querySelectorAll('a').forEach(a => a.onclick = () => mn.classList.remove('open'));
 }
 
+// Interatividade do Botão de Copiar E-mail no Card de Contato
+const btnCopiar = document.getElementById('btnCopiarEmail');
+const emailTexto = document.getElementById('emailTexto');
+const badgeCopia = document.getElementById('badgeCopia');
+
+if (btnCopiar && emailTexto) {
+  btnCopiar.addEventListener('click', () => {
+    navigator.clipboard.writeText(emailTexto.textContent.trim()).then(() => {
+      badgeCopia.textContent = 'Copiado! ✓';
+      badgeCopia.style.background = 'var(--blue)';
+      badgeCopia.style.color = '#fff';
+      setTimeout(() => {
+        badgeCopia.textContent = 'Copiar';
+        badgeCopia.style.background = '#fff';
+        badgeCopia.style.color = 'var(--blue)';
+      }, 2000);
+    }).catch(() => {
+      badgeCopia.textContent = 'Erro ao copiar';
+    });
+  });
+}
+
 // Animação de revelação ao rolar
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) {
