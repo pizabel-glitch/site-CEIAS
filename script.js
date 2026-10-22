@@ -1,3 +1,4 @@
+
 // Estrelas flutuantes
 const sc = document.getElementById('stars'), cores = ['#f4c92e', '#f7dc5c', '#d9352e', '#9cc6e8', '#f4c92e'];
 if (sc) {

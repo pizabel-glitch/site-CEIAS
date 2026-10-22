@@ -93,16 +93,23 @@ nav a.ativo{color:var(--blue)}
 #mlist{list-style:none;padding:0;font-size:.9rem}#mlist li{padding:.3rem 0;border-bottom:1px solid rgba(31,78,156,.1)}
 .contato{background:#fff}.info{list-style:none;padding:0}.info li{margin:.4rem 0}.info a{color:var(--blue);font-weight:700}
 
-/* Estilo do Quadrado de Contato Sofisticado e Compacto */
-.card-contato-wrapper {
-  max-width: 480px;
+/* Grid com Dois Cartões de Contato e Localização */
+.grid-contato-localizacao {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 960px;
   margin: 2rem auto 0;
+}
+.card-contato-wrapper {
   background: #ffffff;
   border-radius: 24px;
   padding: 2rem;
   box-shadow: 0 16px 40px rgba(31, 78, 156, 0.08);
   border: 1px solid rgba(31, 78, 156, 0.12);
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 .card-contato-wrapper:hover {
@@ -111,7 +118,7 @@ nav a.ativo{color:var(--blue)}
 }
 .card-contato-top {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   border-bottom: 1px solid rgba(31, 78, 156, 0.08);
   padding-bottom: 1rem;
 }
@@ -127,15 +134,39 @@ nav a.ativo{color:var(--blue)}
   letter-spacing: .08em;
   margin-bottom: .6rem;
 }
+.tag-atendimento.tag-gold {
+  background: linear-gradient(135deg, #d9a31a, var(--gold));
+  color: var(--ink);
+}
 .card-contato-top h3 {
   margin: .3rem 0;
   color: var(--blue);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
 }
 .desc-secretaria {
   font-size: 0.88rem;
   color: var(--mut);
   margin: 0;
+}
+.mapa-preview {
+  margin: 0.5rem 0;
+}
+.mapa-img-placeholder {
+  background: linear-gradient(135deg, var(--sky), var(--sage));
+  border: 1.5px dashed rgba(31, 78, 156, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--blue);
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.mapa-img-placeholder small {
+  color: var(--mut);
+  font-weight: 400;
 }
 .contato-items {
   display: flex;
