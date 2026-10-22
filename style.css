@@ -17,7 +17,12 @@ nav a:hover::after,nav a.ativo::after{width:100%}
 nav a.ativo{color:var(--blue)}
 .burger{display:none;background:none;border:0;padding:.6rem;cursor:pointer}
 .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s}
-.hero{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;padding:6rem 1.2rem 3rem;background:linear-gradient(180deg,#e9f1fb 0%,#f6f9fd 70%,var(--ivory));overflow:hidden}
+
+/* Degradê do Azul para o Branco no topo */
+.hero{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;padding:6rem 1.2rem 3rem;background:linear-gradient(180deg, var(--blue) 0%, #e9f1fb 50%, var(--ivory) 100%);overflow:hidden}
+.hero h1{color: var(--ink)}
+.hero .sub, .hero .kicker{color: var(--ink)}
+
 .blob{position:absolute;border-radius:60% 40% 55% 45%/50% 60% 40% 50%;filter:blur(2px);animation:morph 18s ease-in-out infinite}
 .b1{width:60vmax;height:60vmax;left:-25vmax;bottom:-30vmax;background:#dbe7f7;opacity:.6}
 .b2{width:40vmax;height:40vmax;right:-15vmax;top:-12vmax;background:#fdf0bd;opacity:.7}

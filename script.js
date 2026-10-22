@@ -94,12 +94,14 @@ function renderAno() {
 
 function render() {
   const a = modo === 'ano'; $('anoview').hidden = !a; $('days').hidden = a; document.querySelector('.dow').hidden = a;
-  $('vm').classList.toggle('on', !a);$('va').classList.toggle('on', a);
+  $('vm').classList.toggle('on', !a); $('va').classList.toggle('on', a);
   if (a) { renderAno(); $('mlist').innerHTML = ''; } else renderMes();
 }
 
-$('vm').onclick = () => { modo = 'mes'; render(); };$('va').onclick = () => { modo = 'ano'; render(); };
-$('prev').onclick = () => { if (modo === 'ano') ano--; else if (--mes < 0) { mes = 11; ano--; } render(); };$('next').onclick = () => { if (modo === 'ano') ano++; else if (++mes > 11) { mes = 0; ano++; } render(); };
+$('vm').onclick = () => { modo = 'mes'; render(); };
+$('va').onclick = () => { modo = 'ano'; render(); };
+$('prev').onclick = () => { if (modo === 'ano') ano--; else if (--mes < 0) { mes = 11; ano--; } render(); };
+$('next').onclick = () => { if (modo === 'ano') ano++; else if (++mes > 11) { mes = 0; ano++; } render(); };
 
 // Barra dos trimestres 2026
 (() => {
