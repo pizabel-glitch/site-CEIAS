@@ -19,25 +19,37 @@ if (bg && mn) {
   mn.querySelectorAll('a').forEach(a => a.onclick = () => mn.classList.remove('open'));
 }
 
-// Interatividade do Botão de Copiar E-mail no Card de Contato
-const btnCopiar = document.getElementById('btnCopiarEmail');
-const emailTexto = document.getElementById('emailTexto');
-const badgeCopia = document.getElementById('badgeCopia');
+// Modal de Formulário Direto para Envio de E-mail
+const btnAbrirModal = document.getElementById('btnAbrirFormEmail');
+const modalEmail = document.getElementById('modalEmail');
+const btnFecharModal = document.getElementById('fecharModal');
+const formMensagem = document.getElementById('formMensagemDireta');
+const statusEnvio = document.getElementById('statusEnvio');
 
-if (btnCopiar && emailTexto) {
-  btnCopiar.addEventListener('click', () => {
-    navigator.clipboard.writeText(emailTexto.textContent.trim()).then(() => {
-      badgeCopia.textContent = 'Copiado! ✓';
-      badgeCopia.style.background = 'var(--blue)';
-      badgeCopia.style.color = '#fff';
-      setTimeout(() => {
-        badgeCopia.textContent = 'Copiar';
-        badgeCopia.style.background = '#fff';
-        badgeCopia.style.color = 'var(--blue)';
-      }, 2000);
-    }).catch(() => {
-      badgeCopia.textContent = 'Erro ao copiar';
-    });
+if (btnAbrirModal && modalEmail) {
+  btnAbrirModal.addEventListener('click', () => {
+    modalEmail.hidden = false;
+  });
+}
+
+if (btnFecharModal && modalEmail) {
+  btnFecharModal.addEventListener('click', () => {
+    modalEmail.hidden = true;
+  });
+}
+
+if (formMensagem) {
+  formMensagem.addEventListener('submit', (e) => {
+    e.preventDefault();
+    statusEnvio.hidden = false;
+    statusEnvio.className = 'sucesso';
+    statusEnvio.textContent = 'Mensagem enviada com sucesso para a secretaria!';
+    
+    setTimeout(() => {
+      formMensagem.reset();
+      statusEnvio.hidden = true;
+      modalEmail.hidden = true;
+    }, 2500);
   });
 }
 

@@ -25,6 +25,7 @@
       <a href="#acesso">Acesso rápido</a>
       <a href="#escola">O colégio</a>
       <a href="#equipe">Nossa equipe</a>
+      <a href="#projetos">Projetos</a>
       <a href="#calendario">Calendário</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -105,18 +106,73 @@
       </div>
     </section>
 
-    <!-- Equipe -->
+    <!-- Equipe (Direção e Professores) -->
     <section id="equipe" class="sec equipe reveal">
       <p class="kicker">Corpo docente e administrativo</p>
       <h2>Nossa Equipe</h2>
+
       <div class="grp">Direção e Pedagogia</div>
-      <div class="grupo">
-        <div class="pessoa f1">
-          <div class="foto">
-            <span class="sr-only">Foto do Diretor</span>
-          </div>
-          <h4>Equipe Diretiva</h4>
-          <p class="cargo">Direção Geral</p>
+      <div class="equipe-grid">
+        <div class="card-membro">
+          <span class="cargo-tag">Diretora</span>
+          <h4>Karina</h4>
+        </div>
+        <div class="card-membro">
+          <span class="cargo-tag">Pedagoga</span>
+          <h4>Sheila</h4>
+        </div>
+        <div class="card-membro">
+          <span class="cargo-tag">Pedagoga</span>
+          <h4>Lucimara</h4>
+        </div>
+        <div class="card-membro">
+          <span class="cargo-tag">Pedagoga</span>
+          <h4>Adriana</h4>
+        </div>
+      </div>
+
+      <div class="grp" style="margin-top: 3rem;">Professores</div>
+      <div class="professores-grid">
+        <div class="card-prof"><strong>Filosofia:</strong> Maike</div>
+        <div class="card-prof"><strong>Língua Inglesa:</strong> Susana, Giovana</div>
+        <div class="card-prof"><strong>Matemática:</strong> Henrique, Paula, Cristian, Adilson</div>
+        <div class="card-prof"><strong>Sociologia:</strong> Rafael</div>
+        <div class="card-prof"><strong>Artes:</strong> Sandra</div>
+        <div class="card-prof"><strong>Química:</strong> Marcos</div>
+        <div class="card-prof"><strong>Física:</strong> Cristian</div>
+        <div class="card-prof"><strong>História:</strong> Vandré</div>
+        <div class="card-prof"><strong>Ciências:</strong> Malu, Erli</div>
+        <div class="card-prof"><strong>Biologia:</strong> Erli</div>
+        <div class="card-prof"><strong>Educação Física:</strong> Emerson, Roberto</div>
+        <div class="card-prof"><strong>Língua Portuguesa:</strong> Susana, Giovana, Rodrigo, Alceu</div>
+        <div class="card-prof"><strong>Geografia:</strong> Sidney</div>
+        <div class="card-prof"><strong>Programação / IA:</strong> Roberto</div>
+        <div class="card-prof"><strong>Educação Financeira:</strong> Paula, Cristian, Adilson</div>
+        <div class="card-prof"><strong>Robótica:</strong> Cristian</div>
+      </div>
+    </section>
+
+    <!-- Espaço dos Alunos (Projetos) -->
+    <section id="projetos" class="sec projetos reveal">
+      <p class="kicker">Mural de destaques</p>
+      <h2>Projetos dos Alunos</h2>
+      <p style="margin-bottom: 2rem;">Espaço dedicado ao protagonismo, criatividade e conquistas científicas e culturais dos nossos estudantes.</p>
+      
+      <div class="projetos-grid">
+        <div class="card-projeto">
+          <div class="ph-projeto">🎨 Arte & Cultura</div>
+          <h3>Exposição Cultural da Colônia</h3>
+          <p>Trabalhos de valorização da história e das tradições da comunidade da Colônia Marcelino.</p>
+        </div>
+        <div class="card-projeto">
+          <div class="ph-projeto">🤖 Robótica & IA</div>
+          <h3>Inovação no Campo</h3>
+          <p>Projetos desenvolvidos nas aulas de Robótica e Programação aplicados ao cotidiano rural.</p>
+        </div>
+        <div class="card-projeto">
+          <div class="ph-projeto">🌱 Meio Ambiente</div>
+          <h3>Horta e Sustentabilidade</h3>
+          <p>Iniciativa integrando conteúdos de Ciências e Biologia na preservação ambiental do entorno.</p>
         </div>
       </div>
     </section>
@@ -169,7 +225,7 @@
       </div>
     </section>
 
-    <!-- Contato e Localização em Dois Quadrados Reformulados -->
+    <!-- Contato e Localização em Dois Quadrados -->
     <section id="contato" class="sec contato reveal">
       <p class="kicker">Atendimento e localização</p>
       <h2>Fale Conosco & Visite-nos</h2>
@@ -187,29 +243,29 @@
           </div>
 
           <div class="contato-items">
-            <!-- Telefone -->
-            <a href="tel:4100000000" class="contato-item" title="Clique para ligar ou abrir no WhatsApp">
+            <!-- Telefone / WhatsApp -->
+            <a href="https://wa.me/5541998320153" target="_blank" class="contato-item" title="Clique para chamar no WhatsApp">
               <div class="icon-circle">📞</div>
               <div class="item-text">
                 <small>Telefone / WhatsApp</small>
-                <strong>(41) 0000-0000</strong>
+                <strong>(41) 99832-0153</strong>
               </div>
-              <span class="action-hint">Ligar ›</span>
+              <span class="action-hint">Chamar ›</span>
             </a>
 
-            <!-- E-mail -->
-            <div class="contato-item" id="btnCopiarEmail" title="Clique para copiar o e-mail">
+            <!-- E-mail que abre formulário direto no site -->
+            <div class="contato-item" id="btnAbrirFormEmail" title="Clique para enviar mensagem direta">
               <div class="icon-circle">✉️</div>
               <div class="item-text">
                 <small>E-mail Oficial</small>
-                <strong id="emailTexto">secretaria@escola.pr.gov.br</strong>
+                <strong>sjpambrosiasabatovich@escola.pr.gov.br</strong>
               </div>
-              <span class="action-hint" id="badgeCopia">Copiar</span>
+              <span class="action-hint">Escrever</span>
             </div>
           </div>
         </div>
 
-        <!-- Quadrado 2: Localização com Mapa Visual -->
+        <!-- Quadrado 2: Localização com Ícone do Maps -->
         <div class="card-contato-wrapper">
           <div class="card-contato-top">
             <span class="tag-atendimento tag-gold">Endereço do Colégio</span>
@@ -221,7 +277,11 @@
 
           <div class="mapa-preview">
             <div class="mapa-img-placeholder">
-              <span>📍 Mapa de Localização</span>
+              <svg class="maps-icon" viewBox="0 0 24 24" width="48" height="48">
+                <path fill="#ea4335" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle fill="#fff" cx="12" cy="9" r="2.5"/>
+              </svg>
+              <span>Google Maps</span>
               <small>Colônia Marcelino · Área Rural</small>
             </div>
           </div>
@@ -238,7 +298,7 @@
           </div>
 
           <div class="card-contato-footer">
-            <a href="https://maps.google.com/?q=Colônia+Marcelino+São+José+dos+Pinhais" target="_blank" rel="noopener noreferrer" class="btn-maps">
+            <a href="https://maps.google.com/?q=Colégio+Estadual+do+Campo+Irmã+Ambrósia+Sabatovich+Colônia+Marcelino+São+José+dos+Pinhais" target="_blank" rel="noopener noreferrer" class="btn-maps">
               <span>🗺️ Abrir no Google Maps</span>
             </a>
           </div>
@@ -247,6 +307,36 @@
       </div>
     </section>
   </main>
+
+  <!-- Modal do Formulário de E-mail Direto no Site -->
+  <div id="modalEmail" class="modal-overlay" hidden>
+    <div class="modal-box">
+      <button id="fecharModal" class="fechar-modal" aria-label="Fechar formulário">&times;</button>
+      <h3>Enviar Mensagem à Secretaria</h3>
+      <p>Preencha os campos abaixo para enviar sua mensagem diretamente para a secretaria.</p>
+      
+      <form id="formMensagemDireta">
+        <div class="campo-form">
+          <label for="nomeRemetente">Seu Nome:</label>
+          <input type="text" id="nomeRemetente" required placeholder="Digite seu nome completo">
+        </div>
+        <div class="campo-form">
+          <label for="emailRemetente">Seu E-mail:</label>
+          <input type="email" id="emailRemetente" required placeholder="seuemail@exemplo.com">
+        </div>
+        <div class="campo-form">
+          <label for="assuntoMsg">Assunto:</label>
+          <input type="text" id="assuntoMsg" required placeholder="Ex: Informações sobre matrícula">
+        </div>
+        <div class="campo-form">
+          <label for="textoMsg">Mensagem:</label>
+          <textarea id="textoMsg" rows="4" required placeholder="Escreva sua mensagem aqui..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-enviar">Enviar Mensagem</button>
+      </form>
+      <div id="statusEnvio" hidden></div>
+    </div>
+  </div>
 
   <button class="topo" id="topo" aria-label="Voltar ao topo da página">↑</button>
 
