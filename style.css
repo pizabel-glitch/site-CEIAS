@@ -35,15 +35,13 @@ body {
   line-height: 1.6;
 }
 
-/* Removendo Fundo de Logos com Fundo Branco */
 .logo-img {
   height: 50px;
   width: auto;
-  mix-blend-mode: multiply; /* Remove o fundo branco da imagem */
+  mix-blend-mode: multiply;
   object-fit: contain;
 }
 
-/* Header & Navegação */
 .main-header {
   background: #ffffff;
   border-bottom: 1px solid var(--border-color);
@@ -149,7 +147,6 @@ body {
   margin-bottom: 1.2rem;
 }
 
-/* Botões */
 .btn-primary {
   background: var(--accent);
   color: #ffffff;
@@ -180,7 +177,6 @@ body {
   display: inline-block;
 }
 
-/* Hero */
 .hero-section {
   text-align: center;
   padding: 3rem 1rem;
@@ -213,7 +209,6 @@ body {
   justify-content: center;
 }
 
-/* Eventos & Calendário */
 .events-grid-layout {
   display: grid;
   grid-template-columns: 340px 1fr;
@@ -446,7 +441,6 @@ body {
   cursor: pointer;
 }
 
-/* Projetos dos Alunos */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -491,7 +485,6 @@ body {
   padding-top: 0.6rem;
 }
 
-/* Direção & Professores */
 .management-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -551,7 +544,6 @@ body {
   font-weight: 600;
 }
 
-/* Localização & Ícone Maps */
 .location-container {
   background: #ffffff;
   border: 1px solid var(--border-color);
@@ -568,7 +560,7 @@ body {
 .maps-icon {
   width: 32px;
   height: 32px;
-  color: #ea4335; /* Cor oficial do Google Maps */
+  color: #ea4335;
   flex-shrink: 0;
 }
 
@@ -581,7 +573,6 @@ body {
   text-decoration: none;
 }
 
-/* Contato & Formulário */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -593,7 +584,7 @@ body {
     grid-template-columns: 1fr;
   }
   .main-nav {
-    display: none; /* Simplificado para telas menores */
+    display: none;
   }
 }
 
@@ -651,7 +642,6 @@ body {
   text-align: center;
 }
 
-/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;

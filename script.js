@@ -1,10 +1,9 @@
-// Lista de Eventos e Aulas
 const eventsData = [
   {
     id: 1,
     title: "Feira de Projetos & Inovação",
     subject: "Artes e Biologia",
-    teacher: "Profª. Izabel & Prof. Carlos",
+    teacher: "Profª. Izabel & Prof. Erli",
     date: "2026-10-10",
     time: "09:00 - 17:00",
     category: "Especial",
@@ -189,7 +188,6 @@ function setupListeners() {
   });
 }
 
-// Envio de E-mail Direto via AJAX sem Redirecionamento
 function setupContactForm() {
   const form = document.getElementById("direct-email-form");
   const statusMsg = document.getElementById("form-status-message");
@@ -213,11 +211,11 @@ function setupContactForm() {
         form.reset();
       } else {
         statusMsg.style.color = "#ef4444";
-        statusMsg.textContent = "Erro ao enviar a mensagem. Tente novamente mais tarde.";
+        statusMsg.textContent = "Erro ao enviar a mensagem. Verifique a chave do Formspree.";
       }
     } catch (error) {
       statusMsg.style.color = "#ef4444";
-      statusMsg.textContent = "Erro de conexão. Verifique sua rede e tente novamente.";
+      statusMsg.textContent = "Erro de conexão. Tente novamente.";
     }
   });
 }

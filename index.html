@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CEIAS - Colégio Estadual do Campo Irmão Ambrosio Sabatowich</title>
 
-  <!-- Fonte Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,7 +17,7 @@
   <header class="main-header">
     <div class="header-container">
       <a href="#inicio" class="logo-link">
-        <img src="logo.png" alt="Logo do Colégio CEIAS" class="logo-img">
+        <img src="logo.png" alt="Logo CEIAS" class="logo-img" onerror="this.style.display='none'">
         <div class="logo-text">
           <strong>Colégio Estadual do Campo<br>Irmão Ambrosio Sabatowich</strong>
           <span>Educando para a Comunidade</span>
@@ -127,7 +126,7 @@
       </div>
     </section>
 
-    <!-- Seção: Direção e Professores (Dados do Documento) -->
+    <!-- Seção: Direção e Professores -->
     <section id="corpo-docente" class="section-block">
       <header class="section-header">
         <span class="badge-tag">✦ Equipe Pedagógica</span>
@@ -135,7 +134,6 @@
         <p class="section-description">Conheça os profissionais dedicados à formação e gestão do nosso colégio.</p>
       </header>
 
-      <!-- Direção e Pedagogas -->
       <div class="management-box">
         <h3 class="subsection-title">👑 Direção & Equipe Pedagógica</h3>
         <div class="management-grid">
@@ -158,7 +156,6 @@
         </div>
       </div>
 
-      <!-- Quadro de Professores por Disciplina -->
       <h3 class="subsection-title" style="margin-top: 2.5rem;">📚 Professores por Disciplina</h3>
       <div class="teachers-grid">
 
@@ -282,7 +279,7 @@
       </div>
     </section>
 
-    <!-- Seção de Contato Com Envio Funcional Direto -->
+    <!-- Contato com Formulário -->
     <section id="contato" class="section-block">
       <header class="section-header">
         <span class="badge-tag">✉ Fale Conosco</span>
@@ -290,7 +287,6 @@
       </header>
 
       <div class="contact-grid">
-        <!-- Detalhes de Contato -->
         <div class="contact-info-card">
           <h3>Canais Oficiais</h3>
           
@@ -306,16 +302,16 @@
             <span class="icon">📞</span>
             <div>
               <strong>Telefone / WhatsApp</strong>
-              <p><a href="tel:41998320153">(41) 99832-0153</a></p>
+              <p><a href="https://wa.me/5541998320153" target="_blank">(41) 99832-0153</a></p>
             </div>
           </div>
         </div>
 
-        <!-- Formulário Funcional de Mensagem Direta sem Sair do Site -->
         <div class="contact-form-card">
           <h3>Envie uma Mensagem</h3>
           
-          <form id="direct-email-form" action="https://formspree.io/f/sjpambrosiasabatovich@escola.pr.gov.br" method="POST">
+          <!-- Lembre-se de trocar SEU_ID_DO_FORMSPREE pelo seu código gerado no Formspree -->
+          <form id="direct-email-form" action="https://formspree.io/f/SEU_ID_DO_FORMSPREE" method="POST">
             <div class="form-group">
               <label for="nome">Seu Nome</label>
               <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
@@ -345,14 +341,12 @@
 
   </main>
 
-  <!-- Rodapé -->
   <footer class="main-footer">
     <div class="footer-container">
       <p>© 2026 Colégio Estadual do Campo Irmão Ambrosio Sabatowich. Educando para a Comunidade.</p>
     </div>
   </footer>
 
-  <!-- Modal de Detalhes dos Eventos -->
   <div class="modal-overlay" id="event-modal">
     <div class="modal-card">
       <button class="modal-close" id="modal-close">✕</button>
