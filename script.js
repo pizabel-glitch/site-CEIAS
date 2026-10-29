@@ -1,223 +1,157 @@
-const eventsData = [
-  {
-    id: 1,
-    title: "Feira de Projetos & Inovação",
-    subject: "Artes e Biologia",
-    teacher: "Profª. Izabel & Prof. Erli",
-    date: "2026-10-10",
-    time: "09:00 - 17:00",
-    category: "Especial",
-    location: "Pátio Principal",
-    description: "Apresentação dos trabalhos práticos desenvolvidos pelos alunos no bimestre."
-  },
-  {
-    id: 2,
-    title: "Aulão de Revisão Histórica",
-    subject: "História",
-    teacher: "Prof. Vandré",
-    date: "2026-10-15",
-    time: "08:00 - 12:00",
-    category: "Escolar",
-    location: "Auditório",
-    description: "Revisão sobre o contexto histórico nacional e preparação para avaliações."
-  },
-  {
-    id: 3,
-    title: "Oficina de Leitura e Redação",
-    subject: "Língua Portuguesa",
-    teacher: "Profª. Susana",
-    date: "2026-10-20",
-    time: "08:00 - 11:30",
-    category: "Cultura",
-    location: "Biblioteca",
-    description: "Atividade focada na interpretação de texto e estruturação dissertativa."
-  }
-];
 
-let currentDate = new Date(2026, 9, 1);
-let currentFilter = "Todos";
-let selectedDateStr = null;
-
-const monthYearText = document.getElementById("calendar-month-year");
-const daysGrid = document.getElementById("calendar-days-grid");
-const eventsList = document.getElementById("events-list");
-const prevBtn = document.getElementById("prev-month");
-const nextBtn = document.getElementById("next-month");
-const filterBtns = document.querySelectorAll(".filter-btn");
-const modal = document.getElementById("event-modal");
-const modalContent = document.getElementById("modal-content");
-const modalClose = document.getElementById("modal-close");
-
-function init() {
-  renderCalendar();
-  renderEvents();
-  setupListeners();
-  setupContactForm();
-}
-
-function renderCalendar() {
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
-
-  const monthName = currentDate.toLocaleDateString("pt-BR", { month: "long" });
-  monthYearText.textContent = `${monthName} ${year}`;
-
-  daysGrid.innerHTML = "";
-
-  const firstDayIndex = new Date(year, month, 1).getDay();
-  const lastDay = new Date(year, month + 1, 0).getDate();
-
-  for (let i = 0; i < firstDayIndex; i++) {
-    const emptySpan = document.createElement("span");
-    emptySpan.className = "day empty";
-    daysGrid.appendChild(emptySpan);
-  }
-
-  for (let day = 1; day <= lastDay; day++) {
-    const dayBtn = document.createElement("button");
-    dayBtn.className = "day";
-    dayBtn.textContent = day;
-
-    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
-    if (eventsData.some(e => e.date === dateStr)) {
-      dayBtn.classList.add("has-event");
-    }
-
-    if (selectedDateStr === dateStr) {
-      dayBtn.classList.add("selected");
-    }
-
-    dayBtn.addEventListener("click", () => {
-      selectedDateStr = selectedDateStr === dateStr ? null : dateStr;
-      renderCalendar();
-      renderEvents();
-    });
-
-    daysGrid.appendChild(dayBtn);
+// Estrelas flutuantes
+const sc = document.getElementById('stars'), cores = ['#f4c92e', '#f7dc5c', '#d9352e', '#9cc6e8', '#f4c92e'];
+if (sc) {
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement('span'), z = 6 + Math.random() * 16;
+    s.className = 'star';
+    s.style.cssText = `left:${Math.random() * 100}%;width:${z}px;height:${z}px;--c:${cores[i % 5]};--o:${.35 + Math.random() * .5};--t:${12 + Math.random() * 16}s;--dl:-${Math.random() * 20}s;--x:${(Math.random() - .5) * 80}px`;
+    sc.appendChild(s);
   }
 }
 
-function renderEvents() {
-  eventsList.innerHTML = "";
-
-  let filtered = eventsData.filter(e => {
-    const matchesCategory = currentFilter === "Todos" || e.category === currentFilter;
-    const matchesDate = !selectedDateStr || e.date === selectedDateStr;
-    return matchesCategory && matchesDate;
-  });
-
-  if (filtered.length === 0) {
-    eventsList.innerHTML = `<p style="text-align:center; padding: 2rem;">Nenhuma atividade cadastrada para a seleção.</p>`;
-    return;
-  }
-
-  filtered.forEach(event => {
-    const [y, m, d] = event.date.split("-");
-    const monthShort = new Date(y, m - 1, d).toLocaleDateString("pt-BR", { month: "short" }).replace(".", "");
-
-    const card = document.createElement("article");
-    card.className = "event-card";
-    card.innerHTML = `
-      <div class="event-date-badge">
-        <span class="day-number">${d}</span>
-        <span class="month-name">${monthShort}</span>
-      </div>
-      <div class="event-content">
-        <div class="event-meta">
-          <span class="category-badge" data-cat="${event.category}">${event.category}</span>
-          <span style="font-size:0.8rem;">🕒 ${event.time}</span>
-        </div>
-        <h3 class="event-title">${event.title}</h3>
-        <div class="event-info-tags">
-          <span>📚 ${event.subject}</span>
-          <span>👨‍🏫 ${event.teacher}</span>
-        </div>
-        <p class="event-description">${event.description}</p>
-        <div class="event-footer">
-          <span class="location-tag">📍 ${event.location}</span>
-          <button class="btn-action" onclick="openModal(${event.id})">Detalhes</button>
-        </div>
-      </div>
-    `;
-    eventsList.appendChild(card);
-  });
+// Menu Mobile
+const bg = document.getElementById('burger'), mn = document.getElementById('menu');
+if (bg && mn) {
+  bg.onclick = () => {
+    const o = mn.classList.toggle('open');
+    bg.setAttribute('aria-expanded', o);
+  };
+  mn.querySelectorAll('a').forEach(a => a.onclick = () => mn.classList.remove('open'));
 }
 
-window.openModal = function(id) {
-  const event = eventsData.find(e => e.id === id);
-  if (!event) return;
+// Interatividade do Botão de Copiar E-mail no Card de Contato
+const btnCopiar = document.getElementById('btnCopiarEmail');
+const emailTexto = document.getElementById('emailTexto');
+const badgeCopia = document.getElementById('badgeCopia');
 
-  const [y, m, d] = event.date.split("-");
-
-  modalContent.innerHTML = `
-    <span class="category-badge" data-cat="${event.category}">${event.category}</span>
-    <h2 style="font-size: 1.4rem; margin: 0.5rem 0;">${event.title}</h2>
-    <p style="color: #2563eb; font-weight: 700;">📚 Matéria: ${event.subject}</p>
-    <p style="color: #475569; font-weight: 600;">👨‍🏫 Professor: ${event.teacher}</p>
-    <p style="margin-top: 0.5rem;"><strong>Data:</strong> ${d}/${m}/${y} das ${event.time}</p>
-    <p><strong>Local:</strong> ${event.location}</p>
-    <p style="margin-top: 1rem; line-height: 1.5;">${event.description}</p>
-  `;
-  modal.classList.add("active");
-};
-
-function setupListeners() {
-  prevBtn.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-  });
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      filterBtns.forEach(b => b.classList.remove("active"));
-      e.target.classList.add("active");
-      currentFilter = e.target.getAttribute("data-filter");
-      renderEvents();
+if (btnCopiar && emailTexto) {
+  btnCopiar.addEventListener('click', () => {
+    navigator.clipboard.writeText(emailTexto.textContent.trim()).then(() => {
+      badgeCopia.textContent = 'Copiado! ✓';
+      badgeCopia.style.background = 'var(--blue)';
+      badgeCopia.style.color = '#fff';
+      setTimeout(() => {
+        badgeCopia.textContent = 'Copiar';
+        badgeCopia.style.background = '#fff';
+        badgeCopia.style.color = 'var(--blue)';
+      }, 2000);
+    }).catch(() => {
+      badgeCopia.textContent = 'Erro ao copiar';
     });
   });
-
-  modalClose.addEventListener("click", () => modal.classList.remove("active"));
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.remove("active");
-  });
 }
 
-function setupContactForm() {
-  const form = document.getElementById("direct-email-form");
-  const statusMsg = document.getElementById("form-status-message");
+// Animação de revelação ao rolar
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    e.target.classList.add('in');
+    io.unobserve(e.target);
+  }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(e => io.observe(e));
 
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    statusMsg.style.color = "#2563eb";
-    statusMsg.textContent = "Enviando mensagem...";
+const elAno = document.getElementById('ano');
+if (elAno) elAno.textContent = new Date().getFullYear();
+const elFooter = document.getElementById('anoFooter');
+if (elFooter) elFooter.textContent = new Date().getFullYear();
 
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+// Calendário Escolar 2026 (SEED-PR)
+const SEED = [
+  ['2026-01-01', 'feriado', 'Ano Novo'], ['2026-04-03', 'feriado', 'Paixão de Cristo'], ['2026-04-05', 'feriado', 'Páscoa'], ['2026-04-21', 'feriado', 'Tiradentes'],
+  ['2026-05-01', 'feriado', 'Dia do Trabalho'], ['2026-06-04', 'feriado', 'Corpus Christi'], ['2026-09-07', 'feriado', 'Independência'], ['2026-10-12', 'feriado', 'N. Sra. Aparecida'],
+  ['2026-11-02', 'feriado', 'Finados'], ['2026-11-15', 'feriado', 'Proclamação da República'], ['2026-11-20', 'feriado', 'Consciência Negra'], ['2026-12-25', 'feriado', 'Natal'],
+  ['2026-02-05', 'tri', 'Início do 1º trimestre e das aulas (63 dias letivos)'], ['2026-05-14', 'tri', 'Fim do 1º trimestre'],
+  ['2026-05-18', 'tri', 'Início do 2º trimestre (68 dias letivos)'], ['2026-09-04', 'tri', 'Fim do 2º trimestre'],
+  ['2026-09-08', 'tri', 'Início do 3º trimestre (70 dias letivos)'], ['2026-12-18', 'tri', 'Fim do 3º trimestre e do ano letivo'],
+  ['2026-08-07', 'comem', 'Dia do Funcionário de Escola'], ['2026-08-11', 'comem', 'Dia do Estudante'], ['2026-10-13', 'comem', 'Dia do Professor (antecipado) e Redução do Risco de Desastres'],
+  ['2026-10-28', 'comem', 'Dia do Servidor Público'],
+  ['2026-03-16', 'comem', 'Semana de combate à violência contra a mulher (16 a 20/03)'], ['2026-03-17', 'comem', 'Semana de combate à violência contra a mulher'], ['2026-03-18', 'comem', 'Semana de combate à violência contra a mulher'], ['2026-03-19', 'comem', 'Semana de combate à violência contra a mulher'], ['2026-03-20', 'comem', 'Semana de combate à violência contra a mulher']
+].map(([d, t, n]) => ({ d, t, n, f: 'SEED-PR' }));
 
-      if (response.ok) {
-        statusMsg.style.color = "#10b981";
-        statusMsg.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contato.";
-        form.reset();
-      } else {
-        statusMsg.style.color = "#ef4444";
-        statusMsg.textContent = "Erro ao enviar a mensagem. Verifique a chave do Formspree.";
-      }
-    } catch (error) {
-      statusMsg.style.color = "#ef4444";
-      statusMsg.textContent = "Erro de conexão. Tente novamente.";
+const ESCOLA = []; // Adicione eventos da própria escola aqui
+const EV = SEED.concat(ESCOLA.map(e => ({ ...e, f: 'Colégio' })));
+const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+const hoje = new Date(); let ano = hoje.getFullYear(), mes = hoje.getMonth(), sel = null;
+const iso = (a, m, d) => `${a}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+const pt = d => d.split('-').reverse().join('/');
+
+function mostra(d) {
+  sel = d; const l = EV.filter(e => e.d === d);
+  document.getElementById('seltit').textContent = pt(d);
+  document.getElementById('evs').innerHTML = l.length ? l.map(e => `<div class="ev">${e.n}<small>Fonte: ${e.f}</small></div>`).join('') : '<p class="pend">Nenhum evento oficial cadastrado. Dias de aula, recessos e planejamento: confirme no PDF da SEED-PR.</p>';
+  render();
+}
+
+function renderMes() {
+  document.getElementById('mes').textContent = `${MESES[mes]} ${ano}`;
+  const p = new Date(ano, mes, 1).getDay(), n = new Date(ano, mes + 1, 0).getDate(); let h = '';
+  for (let i = 0; i < p; i++) h += '<span></span>';
+  for (let d = 1; d <= n; d++) {
+    const k = iso(ano, mes, d), ts = [...new Set(EV.filter(e => e.d === k).map(e => e.t))], w = new Date(ano, mes, d).getDay();
+    const c = [(k === iso(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) ? 'hoje' : ''), (k === sel ? 'sel' : ''), (w % 6 == 0 ? 'fim' : '')].join(' ');
+    h += `<button class="${c}" data-d="${k}">${d}<span class="dots">${ts.map(t => `<i class="d ${t === 'escola' ? 'escola' : t}" style="margin:0"></i>`).join('')}</span></button>`;
+  }
+  const D = document.getElementById('days'); D.innerHTML = h; D.querySelectorAll('button').forEach(b => b.onclick = () => mostra(b.dataset.d));
+  const pre = `${ano}-${String(mes + 1).padStart(2, '0')}`, L = EV.filter(e => e.d.startsWith(pre) && !e.n.startsWith('Semana de combate') || e.d === pre + '-16' && e.n.includes('(16'));
+  document.getElementById('mlist').innerHTML = L.length ? L.sort((a, b) => a.d.localeCompare(b.d)).map(e => `<li><b>${pt(e.d).slice(0, 5)}</b> · ${e.n}</li>`).join('') : '<li>Sem datas oficiais cadastradas neste mês.</li>';
+}
+
+let modo = 'mes';
+const $ = i => document.getElementById(i);
+
+function renderAno() {
+  $('mes').textContent = ano; let h = '';
+  for (let m = 0; m < 12; m++) {
+    const p = new Date(ano, m, 1).getDay(), n = new Date(ano, m + 1, 0).getDate(); let g = '';
+    for (let i = 0; i < p; i++) g += '<i></i>';
+    for (let d = 1; d <= n; d++) {
+      const k = iso(ano, m, d), t = EV.find(e => e.d === k);
+      g += `<i class="${t ? 'ev-' + t.t : ''}">${d}</i>`;
     }
-  });
+    h += `<button class="mini" data-m="${m}"><b>${MESES[m]}</b><span>${g}</span></button>`;
+  }
+  if (ano !== 2026) h += '<p class="pend" style="grid-column:1/-1">Não há calendário oficial da SEED-PR cadastrado para ' + ano + '.</p>';
+  $('anoview').innerHTML = h; $('anoview').querySelectorAll('.mini').forEach(b => b.onclick = () => { mes = +b.dataset.m; modo = 'mes'; render(); });
 }
 
-init();
+function render() {
+  const a = modo === 'ano'; $('anoview').hidden = !a; $('days').hidden = a; document.querySelector('.dow').hidden = a;
+  $('vm').classList.toggle('on', !a); $('va').classList.toggle('on', a);
+  if (a) { renderAno(); $('mlist').innerHTML = ''; } else renderMes();
+}
+
+$('vm').onclick = () => { modo = 'mes'; render(); };
+$('va').onclick = () => { modo = 'ano'; render(); };
+$('prev').onclick = () => { if (modo === 'ano') ano--; else if (--mes < 0) { mes = 11; ano--; } render(); };
+$('next').onclick = () => { if (modo === 'ano') ano++; else if (++mes > 11) { mes = 0; ano++; } render(); };
+
+// Barra dos trimestres 2026
+(() => {
+  const T = [['1º trimestre', '2026-02-05', '2026-05-14', '63 dias letivos'], ['2º trimestre', '2026-05-18', '2026-09-04', '68 dias letivos'], ['3º trimestre', '2026-09-08', '2026-12-18', '70 dias letivos']],
+    D = s => new Date(s + 'T12:00'), a0 = D(T[0][1]), a1 = D(T[2][2]), tot = a1 - a0, ag = new Date();
+  $('tribar').innerHTML = T.map(([n, i, f, l]) => {
+    const w = (D(f) - D(i)) / tot * 100, at = ag >= D(i) && ag <= D(f);
+    return `<div class="seg${at ? ' atual' : ''}" style="flex:${w}"><b>${n}</b><span>${pt(i).slice(0, 5)} a ${pt(f).slice(0, 5)} · ${l}</span></div>`;
+  }).join('');
+})();
+render();
+
+// Próximas datas oficiais
+(() => {
+  const t = iso(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+  const l = SEED.filter(e => e.d >= t && e.n !== 'Semana de combate à violência contra a mulher').sort((a, b) => a.d.localeCompare(b.d)).slice(0, 4);
+  document.getElementById('prox').innerHTML = l.length ? l.map(e => `<li><b>${pt(e.d).slice(0, 5)}</b><span>${e.n}</span></li>`).join('') : '<li>Sem próximas datas cadastradas.</li>';
+})();
+
+// Voltar ao topo e item ativo do menu
+const tp = document.getElementById('topo');
+if (tp) {
+  tp.onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
+  addEventListener('scroll', () => tp.classList.toggle('on', scrollY > 600), { passive: true });
+}
+
+const so = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) document.querySelectorAll('nav a').forEach(a => a.classList.toggle('ativo', a.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('section[id]').forEach(s => so.observe(s));
