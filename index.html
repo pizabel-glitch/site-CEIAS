@@ -2,269 +2,363 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</title>
-  <meta name="description" content="Site oficial do Colégio Estadual do Campo Irmã Ambrósia Sabatovich - Educando para a comunidade.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEIAS - Colégio Estadual do Campo Irmão Ambrosio Sabatowich</title>
+
+  <!-- Fonte Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Atalho de acessibilidade para leitores de tela -->
-  <a href="#conteudo-principal" class="sr-only">Pular para o conteúdo principal</a>
+  <!-- Cabeçalho & Navegação -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#inicio" class="logo-link">
+        <img src="logo.png" alt="Logo do Colégio CEIAS" class="logo-img">
+        <div class="logo-text">
+          <strong>Colégio Estadual do Campo<br>Irmão Ambrosio Sabatowich</strong>
+          <span>Educando para a Comunidade</span>
+        </div>
+      </a>
 
-  <!-- Navegação Principal -->
-  <header class="nav" role="banner">
-    <a href="#capa" class="brand" aria-label="Ir para o topo da página do CEIAS">C.E.I.A.S.</a>
-    <button class="burger" id="burger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav id="menu" role="navigation" aria-label="Menu principal">
-      <a href="#acesso">Acesso rápido</a>
-      <a href="#escola">O colégio</a>
-      <a href="#equipe">Nossa equipe</a>
-      <a href="#calendario">Calendário</a>
-      <a href="#contato">Contato</a>
-    </nav>
+      <nav class="main-nav">
+        <a href="#inicio">Início</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#projetos">Projetos dos Alunos</a>
+        <a href="#corpo-docente">Professores & Direção</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a href="#contato" class="btn-primary">Fale Conosco</a>
+    </div>
   </header>
 
-  <main id="conteudo-principal">
-    <!-- Capa / Hero -->
-    <section id="capa" class="hero reveal">
-      <div class="stars" id="stars" aria-hidden="true"></div>
-      <div class="blob b1" aria-hidden="true"></div>
-      <div class="blob b2" aria-hidden="true"></div>
-      <div class="hero-in">
-        <div class="logo-wrap">
-          <div class="halo" aria-hidden="true"></div>
-          <img src="logo.jpg" alt="Logotipo do Colégio Estadual do Campo Irmã Ambrósia Sabatovich" class="logo">
-        </div>
-        <p class="kicker">Colônia Marcelino · São José dos Pinhais · PR</p>
-        <h1>Colégio Estadual do Campo<br><em>Irmã Ambrósia Sabatovich</em></h1>
-        <p class="sub">Ensino Fundamental e Médio · <strong>"Educando para a comunidade"</strong></p>
-        <div class="cta">
-          <a class="btn" href="#calendario">Ver calendário</a>
-          <a class="btn ghost" href="#contato">Falar com a secretaria</a>
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-content">
+        <span class="badge-tag">✦ Educação • Cultura • Comunidade</span>
+        <h1 class="hero-title">Educando para a <span>Comunidade.</span></h1>
+        <p class="hero-description">
+          Um espaço para aprender, criar, compartilhar experiências e construir juntos um futuro cheio de possibilidades.
+        </p>
+        <div class="hero-buttons">
+          <a href="#corpo-docente" class="btn-primary">Conheça Nossos Professores</a>
+          <a href="#projetos" class="btn-secondary">Ver Projetos</a>
         </div>
       </div>
     </section>
 
-    <!-- Acesso Rápido / Valores e Lema -->
-    <section id="acesso" class="sec acesso reveal">
-      <div class="head">
-        <p class="kicker">Identidade e princípios</p>
-        <h2>Nossos Valores & Lema</h2>
-      </div>
-      <div class="ac-grid">
-        <div class="ac">
-          <h3>Nosso Lema</h3>
-          <p style="font-size: 1.15rem; font-weight: 700; color: var(--blue); border-left: 4px solid var(--gold); padding-left: 1rem; margin-top: 1rem;">
-            "Educando para a comunidade"
-          </p>
-          <p style="margin-top: 0.8rem; font-size: 0.95rem; color: var(--mut);">
-            Buscamos unir o aprendizado escolar às raízes e necessidades da Colônia Marcelino, fortalecendo os laços comunitários e o protagonismo dos estudantes.
-          </p>
-        </div>
-        <div class="ac">
-          <h3>Valores Norteadores</h3>
-          <ul class="links" style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">
-              <strong style="color: var(--ink);">Comunidade e Pertencimento</strong>
-              <span style="display: block; font-size: 0.85rem; color: var(--mut);">Valorização da cultura local e do ambiente do campo.</span>
-            </li>
-            <li style="margin-bottom: 0.8rem;">
-              <strong style="color: var(--ink);">Compromisso e Qualidade</strong>
-              <span style="display: block; font-size: 0.85rem; color: var(--mut);">Dedicação constante ao ensino público gratuito e transformador.</span>
-            </li>
-            <li style="margin-bottom: 0.8rem;">
-              <strong style="color: var(--ink);">Respeito e Cidadania</strong>
-              <span style="display: block; font-size: 0.85rem; color: var(--mut);">Formação ética, inclusiva e colaborativa para a vida em sociedade.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="ac">
-          <h3>Próximos Eventos</h3>
-          <ul id="prox" aria-live="polite"></ul>
-        </div>
-      </div>
-    </section>
+    <!-- Seção de Eventos e Calendário -->
+    <section id="eventos" class="section-block">
+      <header class="section-header">
+        <span class="badge-tag">✦ Programação & Atividades</span>
+        <h2 class="section-title">Momentos que ficam <span>na memória.</span></h2>
+        <p class="section-description">Acompanhe nosso calendário acadêmico, festivais e eventos da comunidade escolar do CEIAS.</p>
+      </header>
 
-    <!-- O Colégio -->
-    <section id="escola" class="sec escola reveal">
-      <div>
-        <p class="kicker">Nossa estrutura</p>
-        <h2>O Colégio</h2>
-        <p>Oferecemos ensino público de qualidade focado no desenvolvimento integral dos alunos da região do campo, aliando conhecimento científico, tradição e valorização comunitária.</p>
-      </div>
-      <div class="gal" role="region" aria-label="Galeria de fotos do colégio">
-        <div class="ph p1">Foto da Estrutura</div>
-        <div class="ph p2">Espaço do Campo</div>
-        <div class="ph p3">Atividades Escolares</div>
-      </div>
-    </section>
-
-    <!-- Equipe -->
-    <section id="equipe" class="sec equipe reveal">
-      <p class="kicker">Corpo docente e administrativo</p>
-      <h2>Nossa Equipe</h2>
-      <div class="grp">Direção e Pedagogia</div>
-      <div class="grupo">
-        <div class="pessoa f1">
-          <div class="foto">
-            <span class="sr-only">Foto do Diretor</span>
-          </div>
-          <h4>Equipe Diretiva</h4>
-          <p class="cargo">Direção Geral</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Calendário Escolar -->
-    <section id="calendario" class="sec cal reveal">
-      <p class="kicker">Datas e compromissos</p>
-      <h2>Calendário Escolar <span id="ano"></span></h2>
-
-      <div class="vis" role="group" aria-label="Modo de visualização do calendário">
-        <button id="vm" class="on" aria-pressed="true">Visão Mensal</button>
-        <button id="va" aria-pressed="false">Visão Anual</button>
-      </div>
-
-      <div class="tribar" id="tribar" aria-label="Períodos trimestrais"></div>
-
-      <div class="cal-grid">
-        <div class="cal-box">
-          <div class="cal-top">
-            <button id="prev" aria-label="Mês anterior">‹</button>
-            <h3 id="mes" aria-live="polite"></h3>
-            <button id="next" aria-label="Próximo mês">›</button>
+      <div class="events-grid-layout">
+        <!-- Calendário -->
+        <section class="calendar-card" aria-label="Calendário Interativo">
+          <div class="calendar-header">
+            <h3 class="calendar-month" id="calendar-month-year">Outubro 2026</h3>
+            <div class="calendar-nav">
+              <button class="btn-icon" id="prev-month" aria-label="Mês anterior">‹</button>
+              <button class="btn-icon" id="next-month" aria-label="Próximo mês">›</button>
+            </div>
           </div>
 
-          <div class="dow" aria-hidden="true">
+          <div class="calendar-weekdays" aria-hidden="true">
             <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
           </div>
 
-          <div class="days" id="days" role="region" aria-label="Dias do mês"></div>
-          <div id="anoview" hidden role="region" aria-label="Visão dos 12 meses"></div>
-        </div>
+          <div class="calendar-days" id="calendar-days-grid"></div>
+        </section>
 
-        <div class="cal-list">
-          <h4 id="seltit">Selecione uma data</h4>
-          <div id="evs" aria-live="polite">
-            <p class="pend">Clique em uma data no calendário para visualizar os eventos detalhados.</p>
+        <!-- Lista de Eventos -->
+        <section class="events-list-wrapper" aria-label="Lista de Eventos e Atividades">
+          <div class="filters-bar" role="tablist">
+            <button class="filter-btn active" data-filter="Todos">Todos</button>
+            <button class="filter-btn" data-filter="Especial">Especiais</button>
+            <button class="filter-btn" data-filter="Cultura">Cultura</button>
+            <button class="filter-btn" data-filter="Escolar">Escolar</button>
           </div>
 
-          <h4 class="small">Eventos Oficiais do Mês</h4>
-          <ul id="mlist"></ul>
+          <div class="events-cards-container" id="events-list"></div>
+        </section>
+      </div>
+    </section>
 
-          <h4 class="small">Legenda</h4>
-          <ul class="leg">
-            <li><span class="d feriado" aria-hidden="true"></span> Feriado</li>
-            <li><span class="d tri" aria-hidden="true"></span> Trimestre</li>
-            <li><span class="d comem" aria-hidden="true"></span> Comemorativo</li>
-            <li><span class="d escola" aria-hidden="true"></span> Evento Escolar</li>
-          </ul>
+    <!-- Seção: Projetos dos Alunos -->
+    <section id="projetos" class="section-block">
+      <header class="section-header">
+        <span class="badge-tag">✦ Protagonismo Estudantil</span>
+        <h2 class="section-title">Projetos dos <span>Nossos Alunos</span></h2>
+        <p class="section-description">Confira os trabalhos, pesquisas e inovações produzidos pelos estudantes do CEIAS.</p>
+      </header>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-tag">Robótica & IA</div>
+          <h3>Automação Agrícola Sustentável</h3>
+          <p>Projeto desenvolvido nas aulas de Robótica para irrigação automática de hortas comunitárias utilizando sensores inteligentes.</p>
+          <div class="project-author">Alunos do Ensino Médio • Orientação: Prof. Cristian</div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tag">Artes & Cultura</div>
+          <h3>Mural de Resgate Cultural</h3>
+          <p>Muralismo e artes plásticas representando a história do campo e a identidade da comunidade escolar.</p>
+          <div class="project-author">Turmas do 9º Ano • Orientação: Profª. Sandra</div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-tag">Ciências & Química</div>
+          <h3>Sabão Ecológico Comunitário</h3>
+          <p>Reaproveitamento de óleo de cozinha usado para produção de sabão biodegradável distribuído na comunidade.</p>
+          <div class="project-author">Alunos do Ensino Médio • Orientação: Prof. Marcos</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seção: Direção e Professores (Dados do Documento) -->
+    <section id="corpo-docente" class="section-block">
+      <header class="section-header">
+        <span class="badge-tag">✦ Equipe Pedagógica</span>
+        <h2 class="section-title">Direção & <span>Professores</span></h2>
+        <p class="section-description">Conheça os profissionais dedicados à formação e gestão do nosso colégio.</p>
+      </header>
+
+      <!-- Direção e Pedagogas -->
+      <div class="management-box">
+        <h3 class="subsection-title">👑 Direção & Equipe Pedagógica</h3>
+        <div class="management-grid">
+          <div class="staff-card director">
+            <span class="role-badge">Diretora</span>
+            <h4>Karina</h4>
+          </div>
+          <div class="staff-card pedagogue">
+            <span class="role-badge">Pedagoga</span>
+            <h4>Sheila</h4>
+          </div>
+          <div class="staff-card pedagogue">
+            <span class="role-badge">Pedagoga</span>
+            <h4>Lucimara</h4>
+          </div>
+          <div class="staff-card pedagogue">
+            <span class="role-badge">Pedagoga</span>
+            <h4>Adriana</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quadro de Professores por Disciplina -->
+      <h3 class="subsection-title" style="margin-top: 2.5rem;">📚 Professores por Disciplina</h3>
+      <div class="teachers-grid">
+
+        <div class="teacher-card">
+          <span class="subject-title">Filosofia</span>
+          <p class="teacher-name">• Maike</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Língua Inglesa</span>
+          <p class="teacher-name">• Susana</p>
+          <p class="teacher-name">• Giovana</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Matemática</span>
+          <p class="teacher-name">• Henrique</p>
+          <p class="teacher-name">• Paula</p>
+          <p class="teacher-name">• Cristian</p>
+          <p class="teacher-name">• Adilson</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Sociologia</span>
+          <p class="teacher-name">• Rafael</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Artes</span>
+          <p class="teacher-name">• Sandra</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Química</span>
+          <p class="teacher-name">• Marcos</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Física</span>
+          <p class="teacher-name">• Cristian</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">História</span>
+          <p class="teacher-name">• Vandré</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Ciências</span>
+          <p class="teacher-name">• Malu</p>
+          <p class="teacher-name">• Erli</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Biologia</span>
+          <p class="teacher-name">• Erli</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Educação Física</span>
+          <p class="teacher-name">• Emerson</p>
+          <p class="teacher-name">• Roberto</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Língua Portuguesa</span>
+          <p class="teacher-name">• Susana</p>
+          <p class="teacher-name">• Giovana</p>
+          <p class="teacher-name">• Rodrigo</p>
+          <p class="teacher-name">• Alceu</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Geografia</span>
+          <p class="teacher-name">• Sidney</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Programação / IA</span>
+          <p class="teacher-name">• Roberto</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Educação Financeira</span>
+          <p class="teacher-name">• Paula</p>
+          <p class="teacher-name">• Cristian</p>
+          <p class="teacher-name">• Adilson</p>
+        </div>
+
+        <div class="teacher-card">
+          <span class="subject-title">Robótica</span>
+          <p class="teacher-name">• Cristian</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section id="localizacao" class="section-block">
+      <header class="section-header">
+        <span class="badge-tag">📍 Onde Estamos</span>
+        <h2 class="section-title">Venha Conhecer <span>o Colégio</span></h2>
+      </header>
+
+      <div class="location-container">
+        <div class="location-info">
+          <div class="info-item">
+            <svg class="maps-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <div>
+              <strong>Endereço Oficial</strong>
+              <p>Colégio Estadual do Campo Irmão Ambrosio Sabatowich</p>
+              <p>São José dos Pinhais - PR</p>
+              <a href="https://maps.google.com/?q=Colegio+Estadual+do+Campo+Irmao+Ambrosio+Sabatowich" target="_blank" rel="noopener noreferrer" class="maps-link">
+                Abrir no Google Maps ↗
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contato e Localização em Dois Quadrados Reformulados -->
-    <section id="contato" class="sec contato reveal">
-      <p class="kicker">Atendimento e localização</p>
-      <h2>Fale Conosco & Visite-nos</h2>
+    <!-- Seção de Contato Com Envio Funcional Direto -->
+    <section id="contato" class="section-block">
+      <header class="section-header">
+        <span class="badge-tag">✉ Fale Conosco</span>
+        <h2 class="section-title">Estamos Prontos para <span>Atender Você</span></h2>
+      </header>
 
-      <div class="grid-contato-localizacao">
-        
-        <!-- Quadrado 1: Informações de Contato -->
-        <div class="card-contato-wrapper">
-          <div class="card-contato-top">
-            <span class="tag-atendimento">Atendimento Oficial</span>
-            <h3>Secretaria Escolar</h3>
-            <p class="desc-secretaria">
-              Atendimento para matrículas, declarações, histórico escolar e informações gerais.
-            </p>
+      <div class="contact-grid">
+        <!-- Detalhes de Contato -->
+        <div class="contact-info-card">
+          <h3>Canais Oficiais</h3>
+          
+          <div class="contact-detail">
+            <span class="icon">✉</span>
+            <div>
+              <strong>E-mail Oficial</strong>
+              <p><a href="mailto:sjpambrosiasabatovich@escola.pr.gov.br">sjpambrosiasabatovich@escola.pr.gov.br</a></p>
+            </div>
           </div>
 
-          <div class="contato-items">
-            <!-- Telefone -->
-            <a href="tel:4100000000" class="contato-item" title="Clique para ligar ou abrir no WhatsApp">
-              <div class="icon-circle">📞</div>
-              <div class="item-text">
-                <small>Telefone / WhatsApp</small>
-                <strong>(41) 0000-0000</strong>
-              </div>
-              <span class="action-hint">Ligar ›</span>
-            </a>
-
-            <!-- E-mail -->
-            <div class="contato-item" id="btnCopiarEmail" title="Clique para copiar o e-mail">
-              <div class="icon-circle">✉️</div>
-              <div class="item-text">
-                <small>E-mail Oficial</small>
-                <strong id="emailTexto">secretaria@escola.pr.gov.br</strong>
-              </div>
-              <span class="action-hint" id="badgeCopia">Copiar</span>
+          <div class="contact-detail">
+            <span class="icon">📞</span>
+            <div>
+              <strong>Telefone / WhatsApp</strong>
+              <p><a href="tel:41998320153">(41) 99832-0153</a></p>
             </div>
           </div>
         </div>
 
-        <!-- Quadrado 2: Localização com Mapa Visual -->
-        <div class="card-contato-wrapper">
-          <div class="card-contato-top">
-            <span class="tag-atendimento tag-gold">Endereço do Colégio</span>
-            <h3>Nossa Localização</h3>
-            <p class="desc-secretaria">
-              Colégio Estadual do Campo Irmã Ambrósia Sabatovich
-            </p>
-          </div>
-
-          <div class="mapa-preview">
-            <div class="mapa-img-placeholder">
-              <span>📍 Mapa de Localização</span>
-              <small>Colônia Marcelino · Área Rural</small>
+        <!-- Formulário Funcional de Mensagem Direta sem Sair do Site -->
+        <div class="contact-form-card">
+          <h3>Envie uma Mensagem</h3>
+          
+          <form id="direct-email-form" action="https://formspree.io/f/sjpambrosiasabatovich@escola.pr.gov.br" method="POST">
+            <div class="form-group">
+              <label for="nome">Seu Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
             </div>
-          </div>
 
-          <div class="contato-items" style="margin-top: 1rem;">
-            <div class="contato-item location-item">
-              <div class="icon-circle">🏘️</div>
-              <div class="item-text">
-                <small>Região</small>
-                <strong>Colônia Marcelino · Área Rural</strong>
-                <span class="sub-loc">São José dos Pinhais - PR</span>
-              </div>
+            <div class="form-group">
+              <label for="email">Seu E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
             </div>
-          </div>
 
-          <div class="card-contato-footer">
-            <a href="https://maps.google.com/?q=Colônia+Marcelino+São+José+dos+Pinhais" target="_blank" rel="noopener noreferrer" class="btn-maps">
-              <span>🗺️ Abrir no Google Maps</span>
-            </a>
-          </div>
+            <div class="form-group">
+              <label for="assunto">Assunto</label>
+              <input type="text" id="assunto" name="assunto" placeholder="Ex: Informações sobre Matrícula" required>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary btn-submit">Enviar Mensagem Direta</button>
+            <p id="form-status-message" class="form-status"></p>
+          </form>
         </div>
-
       </div>
     </section>
+
   </main>
 
-  <button class="topo" id="topo" aria-label="Voltar ao topo da página">↑</button>
-
-  <footer>
-    <p>© <span id="anoFooter">2026</span> Colégio Estadual do Campo Irmã Ambrósia Sabatovich - Todos os direitos reservados.</p>
+  <!-- Rodapé -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>© 2026 Colégio Estadual do Campo Irmão Ambrosio Sabatowich. Educando para a Comunidade.</p>
+    </div>
   </footer>
 
-  <style>
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); border: 0;
-    }
-    .sr-only:focus {
-      position: fixed; top: 10px; left: 10px; width: auto; height: auto;
-      padding: 1rem; background: var(--blue); color: #fff; z-index: 999;
-      clip: auto; border-radius: 8px; font-weight: bold; text-decoration: none;
-    }
-  </style>
+  <!-- Modal de Detalhes dos Eventos -->
+  <div class="modal-overlay" id="event-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
